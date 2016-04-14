@@ -1,0 +1,122 @@
+﻿@model Questionnaire.WebSite.Models.QuestionModel
+
+<script>
+    setAjaxForm("popupContent");
+    $("#titlePopup").text('Добавление/Редактирование вопроса');
+
+    $("input[type=radio]").show();
+
+    if ($("#hdnTypeQuestion").val() == 1 ||
+        $("#hdnTypeQuestion").val() == 4)
+    {
+        $("#listAnswers").hide();
+        $(".add_button").hide();
+    }
+</script>
+
+@using (Html.BeginForm("EditQuestion", "Admin", FormMethod.Post, new { id = "ajaxForm" }))
+{
+    <div class="question">
+        <span>Вопрос:</span><br>
+        @Html.TextAreaFor(x => x.TextQuestion)
+        @Html.HiddenFor(x => x.CharterID)
+        @Html.HiddenFor(m => m.ID)
+        @Html.Hidden("hdnTypeQuestion", Model.TypeQuestion, new { id = "hdnTypeQuestion" })
+        @Html.Hidden("IsNew", (Boolean)ViewBag.IsNew)
+
+        <span>Номер&nbsp;в&nbsp;последовательности:</span>
+        @Html.TextBoxFor(x => x.NumberSequence)
+
+        <div class="typeQuestion">
+            @Html.RadioButtonFor(x => x.TypeQuestion, 2, new { onclick = "SetTypeQuestion(2)" })
+            <span>Выбор</span>
+
+            @Html.RadioButtonFor(x => x.TypeQuestion, 6, new { onclick = "SetTypeQuestion(6)" })
+            <span>Выбор + текст</span>
+
+            @Html.RadioButtonFor(x => x.TypeQuestion, 3, new { onclick = "SetTypeQuestion(3)" })
+            <span>Выпадающий список</span>
+            
+            @Html.RadioButtonFor(x => x.TypeQuestion, 1, new { onclick = "SetTypeQuestion(1)" })
+            <span>Текст</span>
+
+            @Html.RadioButtonFor(x => x.TypeQuestion, 4, new { onclick = "SetTypeQuestion(4)" })
+            <span>От... до...</span>
+
+            @Html.RadioButtonFor(x => x.TypeQuestion, 5, new { onclick = "SetTypeQuestion(5)" })
+            <span>Множественный выбор</span>
+        </div>
+
+        <div class="answersButton">
+            <a href="#" onclick="GetAllMO(@Model.CharterID)"><div class="add_button">Импорт МО</div></a>
+            <a href="#" onclick="GetAllSMO(@Model.CharterID)"><div class="add_button">Импорт СМО</div></a>
+        </div>
+    </div>
+        
+    <div id="listAnswers">
+    @for (Int32 i = 0; i < Model.Answers.Count; i++)
+    {
+        <div class="answer_pop_up answer">
+            <div class="answer_item">
+                <span class="ttl">Ответ:</span>
+            </div>
+
+            <div class="answer_item">
+                @Html.HiddenFor(m => m.Answers[i].ID, new { @class = "idAnswer" })
+                @Html.ValidationMessageFor(m => m.Answers[i].ID)
+                <span class="ttl">Текст&nbsp;ответа:</span>
+                @Html.TextBoxFor(m => m.Answers[i].TextAnswer, new { @class = "textAnswer" })
+                @Html.ValidationMessageFor(m => m.Answers[i].TextAnswer)
+            </div>
+
+            <div class="answer_item">
+                <span class="ttl">Доп. поле ответа 1:</span>
+                @Html.TextBoxFor(m => m.Answers[i].TextAnswerAdditional1, new { @class = "textAnswerAdditional1" })
+                @Html.ValidationMessageFor(m => m.Answers[i].TextAnswerAdditional1)
+            </div>
+                
+            <div class="answer_item">
+                <span class="ttl">Доп. поле ответа 2:</span>
+                @Html.TextBoxFor(m => m.Answers[i].TextAnswerAdditional2, new { @class = "textAnswerAdditional2" })
+                @Html.ValidationMessageFor(m => m.Answers[i].TextAnswerAdditional2)
+            </div>
+
+            <div class="answer_item">
+                <span class="ttl">Цена&nbsp;ответа:</span>
+                @Html.TextBoxFor(m => m.Answers[i].Score, new { @class = "score" })
+                @Html.ValidationMessageFor(m => m.Answers[i].Score)
+            </div>
+
+            <div class="answer_item">
+                <span class="ttl">Последовательность:</span>
+                @Html.TextBoxFor(m => m.Answers[i].NumberSequence, new { @class = "numberSequence" })
+                @Html.ValidationMessageFor(m => m.Answers[i].NumberSequence)
+            </div>
+
+            <div class="answer_item">
+                <span class="ttl">Следующий&nbsp;вопрос:</span>
+                @Html.DropDownListFor(m => m.Answers[i].NextQuestionID, new SelectList((IEnumerable<SelectListItem>)ViewBag.Questions, "Value", "Text", Model.Answers[i].NextQuestionID), "-- Выберите --", new { @class = "nextQuestion" })
+                @Html.ValidationMessageFor(m => m.Answers[i].NextQuestionID)
+            </div>
+
+            @if (Model.Answers.Count > 1)
+            {
+                <div class="answer_item">
+                    <a href="#" onclick="RemoveAnswer(this)"><div class="drop_button delete_answer">Удалить</div></a>
+                </div>
+            }
+            else
+            {
+                <div class="answer_item">
+                    <a href="#" onclick="RemoveAnswer(this)"><div class="drop_button delete_answer" style="display:none;">Удалить</div></a>
+                </div>
+            }
+        </div>
+    }
+    </div>
+    
+    <div class="buttons_botoom">
+        <a href="#" onclick="AddAnswer()"><div class="add_button">Добавить</div></a>
+        <a href="#" onclick="$(this).closest('form').submit(); return false;"><div class="save_button">Сохранить</div></a>
+    </div>
+}

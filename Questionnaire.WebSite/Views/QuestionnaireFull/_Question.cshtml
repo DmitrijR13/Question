@@ -1,0 +1,230 @@
+﻿@model Questionnaire.WebSite.Models.QuestionFullModel
+
+<script>
+    setAjaxForm("winContent");
+    enclick();
+    
+    $('.hdnDateStart').datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'MM yy',
+        showAnim: "",
+        onClose: function (dateText, inst) {
+            $('.ui-datepicker-calendar').hide();
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, month, 1));
+        },
+        beforeShow: function (input, inst) {
+            if ((datestr = $(this).val()).length > 0) {
+                year = datestr.substring(datestr.length - 4, datestr.length);
+                month = jQuery.inArray(datestr.substring(0, datestr.length - 5), $(this).datepicker('option', 'monthNames'));
+                $(this).datepicker('option', 'defaultDate', new Date(year, month, 1));
+                $(this).datepicker('setDate', new Date(year, month, 1));
+            }
+        }
+    })
+    .focus(hideDaysFromCalendar);
+
+    $('.hdnDateEnd').datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'MM yy',
+        showAnim: "",
+        onClose: function (dateText, inst) {
+            $('.ui-datepicker-calendar').hide();
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, month, 1));
+        },
+        beforeShow: function (input, inst) {
+            if ((datestr = $(this).val()).length > 0) {
+                year = datestr.substring(datestr.length - 4, datestr.length);
+                month = jQuery.inArray(datestr.substring(0, datestr.length - 5), $(this).datepicker('option', 'monthNames'));
+                $(this).datepicker('option', 'defaultDate', new Date(year, month, 1));
+                $(this).datepicker('setDate', new Date(year, month, 1));
+            }
+        }
+    })
+    .focus(hideDaysFromCalendar);
+</script>
+
+@using (Html.BeginForm("Question", "QuestionnaireFull", FormMethod.Post, new { id = "ajaxForm", @class = "formFullQuestionnaire" }))
+{
+    @Html.HiddenFor(x => x.VotingID, new { id = "hdnVoting" })
+    @Html.HiddenFor(x => x.CharterID)
+    @Html.HiddenFor(x => x.CharterName)
+
+    <h1>@Model.CharterName</h1>
+    
+    <div class="parentError">
+        @Html.ValidationSummary(true, " ", new { @class = "allErrorMessage" })
+    </div>
+    
+    for (Int32 j = 0; j < Model.Questions.Count; j++)
+    {
+        @Html.HiddenFor(x => Model.Questions[j].QuestionID)
+        @Html.HiddenFor(x => Model.Questions[j].TypeQuestion)
+        @Html.HiddenFor(x => Model.Questions[j].TextQuestion)
+        @Html.HiddenFor(x => Model.Questions[j].Number)
+    
+        <h1>Вопрос №@Model.Questions[j].Number</h1>
+        <div class="shadow_under_title"></div>
+    
+        <div id="center_quation"><!-- блок, который делает вопрос по центру открываем -->
+            <div id="back_quation_div">
+            </div>
+
+            <div class="question">
+                @Model.Questions[j].TextQuestion
+            </div>
+
+            <div id="next_quation_div">
+            </div>
+            
+            <div class="options_answer">
+                @if (Model.Questions[j].TypeQuestion == (Int32)Sobits.Story.Logic.Enumerable.TypeQuestion.RadioButton)
+                {
+                    for (Int32 i = 0; i < @Model.Questions[j].Answers.Count; i++)
+                    {                
+                     <div class="option_answer_div">
+                        @Html.RadioButtonFor(x => @Model.Questions[j].IDCheck, @Model.Questions[j].Answers[i].AnswerID, new { id = String.Concat("IDCheck", j.ToString(), i.ToString()) })
+                
+                        <div class="alignment_answers"><label class="alignment_answers_labels" for="@String.Concat("IDCheck", j.ToString(), i.ToString())">
+                            <span></span>@Model.Questions[j].Answers[i].TextAnswer
+                        </label></div>
+                
+                        @Html.HiddenFor(x => Model.Questions[j].Answers[i].AnswerID)
+                        @Html.HiddenFor(x => Model.Questions[j].Answers[i].TextAnswer)
+                        @Html.HiddenFor(x => Model.Questions[j].DateStart)
+                        @Html.HiddenFor(x => Model.Questions[j].DateEnd)
+                     </div>
+                    }
+                              
+                    <div style="display:none">
+                        @Html.HiddenFor(x => Model.Questions[j].TextAnswer)
+                        @for (Int32 i = 0; i < Model.Questions[j].IDChecks.Count; i++)
+                        {   
+                            @Html.HiddenFor(x => Model.Questions[j].IDChecks[i])
+                        }
+                    </div>
+                }
+                else if (Model.Questions[j].TypeQuestion == (Int32)Sobits.Story.Logic.Enumerable.TypeQuestion.RadioButtonText)
+                {
+                    for (Int32 i = 0; i < Model.Questions[j].Answers.Count; i++)
+                    {                
+                     <div class="option_answer_div">
+                        @Html.RadioButtonFor(x => @Model.Questions[j].IDCheck, @Model.Questions[j].Answers[i].AnswerID, new { id = String.Concat("IDCheck", j.ToString(), i.ToString()), onchange = "clearText(this)"  })
+                
+                        <div class="alignment_answers">
+                            <label class="alignment_answers_labels" for="@String.Concat("IDCheck", j.ToString(), i.ToString())">
+                                <span></span>@Model.Questions[j].Answers[i].TextAnswer
+                            </label>
+                        </div>
+                
+                        @Html.HiddenFor(x => Model.Questions[j].Answers[i].AnswerID)
+                        @Html.HiddenFor(x => Model.Questions[j].Answers[i].TextAnswer)
+                        @Html.HiddenFor(x => Model.Questions[j].DateStart)
+                        @Html.HiddenFor(x => Model.Questions[j].DateEnd)
+                     </div>
+                    }
+                    
+                    <div class="fullAnswerTextBottom">
+                        @Html.TextBoxFor(x => Model.Questions[j].TextAnswer, new { onfocus = "clearRadio(this)" })
+                    </div>
+                              
+                    <div style="display:none">
+                        @Html.HiddenFor(x => Model.Questions[j].TextAnswer)
+                        @for (Int32 i = 0; i < Model.Questions[j].IDChecks.Count; i++)
+                        {   
+                            @Html.HiddenFor(x => Model.Questions[j].IDChecks[i])
+                        }
+                    </div>
+                }
+                else if (Model.Questions[j].TypeQuestion == (Int32)Sobits.Story.Logic.Enumerable.TypeQuestion.DropDownList)
+                {
+                    <div class="divFind">
+                        @Html.HiddenFor(x => Model.Questions[j].TextAnswer)
+                        @Html.HiddenFor(x => Model.Questions[j].IDCheck)
+                        @Html.HiddenFor(x => Model.Questions[j].DateStart)
+                        @Html.HiddenFor(x => Model.Questions[j].DateEnd)
+                        @Html.TextBox("tbFind", String.Empty, String.Empty, new { questionID = Model.Questions[j].QuestionID, onkeyup = "findAnswers(this)", placeholder = "Поиск..." })
+                    </div>
+                    
+                    @Html.ListBoxFor(x => Model.Questions[j].IDChecks, new SelectList(Model.Questions[j].Answers, "AnswerID", "TextAnswer", Model.Questions[j].IDChecks), new { multiple = false, size = 5, id = "answers" })
+                
+                    <div style="display:none">
+                        @for (Int32 i = 0; i < Model.Questions[j].Answers.Count; i++)
+                        {   
+                            @Html.HiddenFor(x => Model.Questions[j].Answers[i].AnswerID)
+                            @Html.HiddenFor(x => Model.Questions[j].Answers[i].TextAnswer)
+                        }
+                    </div>
+                }
+                else if (Model.Questions[j].TypeQuestion == (Int32)Sobits.Story.Logic.Enumerable.TypeQuestion.Text)
+                {
+                    <div class="fullAnswerText">
+                        @Html.HiddenFor(x => Model.Questions[j].DateStart)
+                        @Html.HiddenFor(x => Model.Questions[j].DateEnd)
+                        @Html.HiddenFor(x => Model.Questions[j].IDCheck)
+                        @Html.TextBoxFor(x => Model.Questions[j].TextAnswer)
+
+                        <div style="display:none">
+                            @for (Int32 i = 0; i < Model.Questions[j].IDChecks.Count; i++)
+                            {   
+                                @Html.HiddenFor(x => Model.Questions[j].IDChecks[i])
+                            }
+                        </div>
+                    </div>
+                }
+                else if (Model.Questions[j].TypeQuestion == (Int32)Sobits.Story.Logic.Enumerable.TypeQuestion.FromTo)
+                {
+                    <div class="block_answer_at_full_version">
+                        <div class="insert_s_before_date">С</div> @Html.TextBoxFor(x => Model.Questions[j].DateStart, new { @class = "hdnDateStart" })<br />
+                        <div class="insert_po_before_date">По</div> @Html.TextBoxFor(x => Model.Questions[j].DateEnd, new { @class = "hdnDateEnd" })
+                        @Html.HiddenFor(x => Model.Questions[j].IDCheck)
+                        @Html.HiddenFor(x => Model.Questions[j].TextAnswer)
+
+                        <div style="display:none">
+                            @for (Int32 i = 0; i < Model.Questions[j].IDChecks.Count; i++)
+                            {   
+                                @Html.HiddenFor(x => Model.Questions[j].IDChecks[i])
+                            }
+                        </div>
+                    </div>
+                }
+                else if (Model.Questions[j].TypeQuestion == (Int32)Sobits.Story.Logic.Enumerable.TypeQuestion.Multiple)
+                {
+                    for (Int32 i = 0; i < @Model.Questions[j].Answers.Count; i++)
+                    {              
+                     <div class="option_answer_div">
+                        @Html.CheckBoxFor(x => @Model.Questions[j].Answers[i].IsCheck, new { id = String.Concat("IDCheck", j.ToString(), i.ToString()) })
+                
+                        <label for="@String.Concat("IDCheck", j.ToString(), i.ToString())">
+                            <span></span>@Model.Questions[j].Answers[i].TextAnswer
+                        </label>
+                
+                        @Html.HiddenFor(x => Model.Questions[j].Answers[i].AnswerID)
+                        @Html.HiddenFor(x => Model.Questions[j].Answers[i].TextAnswer)
+                        @Html.HiddenFor(x => Model.Questions[j].DateStart)
+                        @Html.HiddenFor(x => Model.Questions[j].DateEnd)
+                     </div>
+                    }
+                
+                    <div style="display:none">
+                        @Html.HiddenFor(x => Model.Questions[j].TextAnswer)
+                        @for (Int32 i = 0; i < Model.Questions[j].IDChecks.Count; i++)
+                        {   
+                            @Html.HiddenFor(x => Model.Questions[j].IDChecks[i])
+                        }
+                    </div>
+                }
+            </div>
+
+          </div><!-- блок, который делает вопрос по центру закрываем -->
+    }
+    
+    <a href="#" onclick="serviceWindowOpen('Идет сохранение. Ожидайте...', 2); disclick(); $(this).closest('form').submit(); return false;"><div class="save_button">Отправить</div></a>
+}

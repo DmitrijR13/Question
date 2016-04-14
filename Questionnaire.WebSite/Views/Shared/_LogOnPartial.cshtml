@@ -1,0 +1,28 @@
+﻿<div class="logon_top_menu">
+    @if (Session.User != null)
+    {
+        <div class="avatar_logon">
+            <a href="@Url.Action("LogOff", "Account")"><img src="@Url.Content("~/Content/images/person2.png")" title="Выйти" class="avatar_logon_img"></a>
+	    </div>
+    }
+    else
+    {
+        <div class="avatar_logon">
+            <a href="@Url.Action("LogOn", "Account")"><img src="@Url.Content("~/Content/images/person2.png")" title="Войти" class="avatar_logon_img"></a>
+	    </div>
+    }
+
+	@*<div class="avatar_logon">
+        <img src="@Url.Content("~/Content/images/person2.png")" class="avatar_logon_img">
+	</div>
+	<div class="buttons_logon">
+        @if (Session.User != null)
+        {
+            @Html.ActionLink("Выйти", "LogOff", "Account")
+        }
+        else
+        {
+            @Html.ActionLink("Войти", "LogOn", "Account")
+        }
+	</div>*@
+</div>

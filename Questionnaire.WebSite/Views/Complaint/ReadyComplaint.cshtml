@@ -1,0 +1,27 @@
+﻿@model Int32
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Жалоба отправлена</title>
+
+    <link href="@Url.Content("~/Content/complaint.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="admin">
+        <div class="loginForm"> 
+            <div class="popupForm">
+                <div class="popupItem">
+                    <div class="message">Жалоба отправлена. Номер @Model.ToString(). Все окай.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

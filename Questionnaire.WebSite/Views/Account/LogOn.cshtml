@@ -1,0 +1,35 @@
+﻿@model Questionnaire.WebSite.Models.LogOnModel
+
+@{
+    ViewBag.Title = "Анкетирование: вход";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hidLoginPage" value="login" />
+
+@{ Html.EnableClientValidation(); }
+
+<div id="winContent_center_block">
+    <div id="winContent">
+        <h1><img width="30px" src="~/Content/images/person.png"> Авторизация</h1><div class="shadow_under_title"></div>
+
+        @using (Html.BeginForm()) {
+    
+            @Html.ValidationSummary(true, "Вход не удался. Попробуйте еще раз.", new { @class = "commonErrors" })
+               
+            <div class="logon_form">
+                @Html.TextBoxFor(m => m.Email, new { id = "email_logon", @class = "logon_inputs", placeholder = "Email" })
+                @Html.ValidationMessageFor(m => m.Email)<br>
+                @Html.PasswordFor(m => m.Password, new { id = "pass_logon", @class = "logon_inputs", placeholder = "Пароль" })
+                @Html.ValidationMessageFor(m => m.Password)<br><br />
+                <div class="remember_user">
+                    <input type="checkbox" name="yes_remember" id="yes_remember">
+                    <label for="yes_remember"><div></div>Запомнить меня</label>
+                </div><br />
+            
+                <div class="login_button" onclick="$(this).closest('form').submit(); return false;">Войти</div>
+            </div><!-- close id=logon_form -->
+        }
+
+    </div><!-- блок, который делает вопрос по центру закрываем -->
+</div>

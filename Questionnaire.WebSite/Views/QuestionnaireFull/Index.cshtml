@@ -1,0 +1,19 @@
+﻿@model Questionnaire.WebSite.Models.QuestionnaireModel
+
+@{
+    ViewBag.Title = "Анкетирование";
+    Layout = Model.IsPlugin ? "~/Views/Shared/_LayoutSimple.cshtml" :
+                              "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts{
+    <script src="@Url.Content("~/Scripts/QuestionnaireFull.js")" type="text/javascript"></script>
+}
+
+@Html.Hidden("hdnCharter", Model.CharterID, new { id = "hdnCharter" })
+@Html.Hidden("hdnVoting", Model.VotingID, new { id = "hdnVoting" })
+@Html.Hidden("hdnIsPlugin", Model.IsPlugin, new { id = "hdnIsPlugin" })
+
+<div id="winContent_center_block">
+    <div id="winContent"></div>
+</div>

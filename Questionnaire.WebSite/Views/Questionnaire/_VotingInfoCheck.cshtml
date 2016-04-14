@@ -1,0 +1,26 @@
+﻿@model Questionnaire.WebSite.Models.VotingInfoCheckModel
+
+<script>
+    setAjaxForm("winContent");
+</script>
+
+@Html.HiddenFor(x => x.VotingID)
+@Html.HiddenFor(x => x.CharterID)
+
+<h1 class="thanks">Введите код с картинки</h1><br />
+
+@using (Html.BeginForm("VotingInfoCheck", "Questionnaire", FormMethod.Post, new { id = "ajaxForm" }))
+{
+    @Html.HiddenFor(x => x.VotingID, new { id = "hdnVoting" })
+    @Html.HiddenFor(x => x.CharterID, new { id = "hdnCharter" })
+    
+    <div id="center_quation_mini"><!-- блок, который делает вопрос по центру открываем -->
+        @Html.ShowCaptcha("Questionnaire", "Captcha", 300, 50)
+        @Html.Editor("captcha")<br />
+        @Html.ValidationMessage("captcha")
+    </div><!-- блок, который делает вопрос по центру закрываем -->
+    
+    <div class="buttons_botoom">
+        <a href="#" onclick="$(this).closest('form').submit(); return false;"><div class="save_button">Отправить</div></a>
+    </div>
+}

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{65CB4979-267B-4D04-A534-0A2818E375C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logic</RootNamespace>
+    <AssemblyName>Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\dll\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\dll\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\ConsoleApplication1\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\dll\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\dll\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>dll\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=10.2.0.100, Culture=neutral, PublicKeyToken=89b483f429c47342">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\dll\WebActivatorEx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseRepo.cs" />
+    <Compile Include="BLL\Answer.cs" />
+    <Compile Include="BLL\AnswerNextQuestion.cs" />
+    <Compile Include="BLL\BFile.cs" />
+    <Compile Include="BLL\Charter.cs" />
+    <Compile Include="BLL\Complaint.cs" />
+    <Compile Include="BLL\IPAddress.cs" />
+    <Compile Include="BLL\ListAnswer.cs" />
+    <Compile Include="BLL\MOOrganization.cs" />
+    <Compile Include="BLL\Permission.cs" />
+    <Compile Include="BLL\PermissionRole.cs" />
+    <Compile Include="BLL\Question.cs" />
+    <Compile Include="BLL\Role.cs" />
+    <Compile Include="BLL\SMOOrganization.cs" />
+    <Compile Include="BLL\TempVotingQuestion.cs" />
+    <Compile Include="BLL\TypeCategoryComplaint.cs" />
+    <Compile Include="BLL\TypeDealComplaint.cs" />
+    <Compile Include="BLL\TypeStateComplaint.cs" />
+    <Compile Include="BLL\User.cs" />
+    <Compile Include="BLL\UserRole.cs" />
+    <Compile Include="BLL\Voting.cs" />
+    <Compile Include="BLL\VotingQuestion.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Crypt.cs" />
+    <Compile Include="DataModel\QuestionAnswerDM.cs" />
+    <Compile Include="DataModel\StatisticDM.cs" />
+    <Compile Include="DataModel\VotingDM.cs" />
+    <Compile Include="Enumerable\TypeQuestion.cs" />
+    <Compile Include="Extensions\Int32ArrayOrcl.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Mappings\AnswerMap.cs" />
+    <Compile Include="Mappings\AnswerNextQuestionMap.cs" />
+    <Compile Include="Mappings\BFileMap.cs" />
+    <Compile Include="Mappings\CharterMap.cs" />
+    <Compile Include="Mappings\ComplaintMap.cs" />
+    <Compile Include="Mappings\IPAddressMap.cs" />
+    <Compile Include="Mappings\ListAnswerMap.cs" />
+    <Compile Include="Mappings\MOOrganizationMap.cs" />
+    <Compile Include="Mappings\PermissionMap.cs" />
+    <Compile Include="Mappings\PermissionRoleMap.cs" />
+    <Compile Include="Mappings\QuestionMap.cs" />
+    <Compile Include="Mappings\RoleMap.cs" />
+    <Compile Include="Mappings\SMOOrganizationMap.cs" />
+    <Compile Include="Mappings\TempVotingQuestionMap.cs" />
+    <Compile Include="Mappings\TypeCategoryComplaintMap.cs" />
+    <Compile Include="Mappings\TypeDealComplaintMap.cs" />
+    <Compile Include="Mappings\TypeStateComplaintMap.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
+    <Compile Include="Mappings\UserRoleMap.cs" />
+    <Compile Include="Mappings\VotingMap.cs" />
+    <Compile Include="Mappings\VotingQuestionMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo\IAnswerNextQuestionRepo.cs" />
+    <Compile Include="Repo\IAnswerRepo.cs" />
+    <Compile Include="Repo\IBFileRepo.cs" />
+    <Compile Include="Repo\ICharterRepo.cs" />
+    <Compile Include="Repo\IComplaintRepo.cs" />
+    <Compile Include="Repo\IIPAddressRepo.cs" />
+    <Compile Include="Repo\IListAnswerRepo.cs" />
+    <Compile Include="Repo\IMOOrganizationRepo.cs" />
+    <Compile Include="Repo\Impl\AnswerNextQuestionRepo.cs" />
+    <Compile Include="Repo\Impl\AnswerRepo.cs" />
+    <Compile Include="Repo\Impl\BFileRepo.cs" />
+    <Compile Include="Repo\Impl\CharterRepo.cs" />
+    <Compile Include="Repo\Impl\ComplaintRepo.cs" />
+    <Compile Include="Repo\Impl\IPAddressRepo.cs" />
+    <Compile Include="Repo\Impl\ListAnswerRepo.cs" />
+    <Compile Include="Repo\Impl\MOOrganizationRepo.cs" />
+    <Compile Include="Repo\Impl\PermissionRepo.cs" />
+    <Compile Include="Repo\Impl\PermissionRoleRepo.cs" />
+    <Compile Include="Repo\Impl\QuestionRepo.cs" />
+    <Compile Include="Repo\Impl\RoleRepo.cs" />
+    <Compile Include="Repo\Impl\SMOOrganizationRepo.cs" />
+    <Compile Include="Repo\Impl\TempVotingQuestionRepo.cs" />
+    <Compile Include="Repo\Impl\TypeCategoryComplaintRepo.cs" />
+    <Compile Include="Repo\Impl\TypeDealComplaintRepo.cs" />
+    <Compile Include="Repo\Impl\TypeStateComplaintRepo.cs" />
+    <Compile Include="Repo\Impl\UserRepo.cs" />
+    <Compile Include="Repo\Impl\UserRoleRepo.cs" />
+    <Compile Include="Repo\Impl\VotingQuestionRepo.cs" />
+    <Compile Include="Repo\Impl\VotingRepo.cs" />
+    <Compile Include="Repo\IPermissionRepo.cs" />
+    <Compile Include="Repo\IPermissionRoleRepo.cs" />
+    <Compile Include="Repo\IQuestionRepo.cs" />
+    <Compile Include="Repo\IRepo.cs" />
+    <Compile Include="Repo\IRoleRepo.cs" />
+    <Compile Include="Repo\ISMOOrganizationRepo.cs" />
+    <Compile Include="Repo\ITempVotingQuestionRepo.cs" />
+    <Compile Include="Repo\ITypeCategoryComplaintRepo.cs" />
+    <Compile Include="Repo\ITypeDealComplaintRepo.cs" />
+    <Compile Include="Repo\ITypeStateComplaintRepo.cs" />
+    <Compile Include="Repo\IUserRepo.cs" />
+    <Compile Include="Repo\IUserRoleRepo.cs" />
+    <Compile Include="Repo\IVotingQuestionRepo.cs" />
+    <Compile Include="Repo\IVotingRepo.cs" />
+    <Compile Include="Repo\RepoFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="oci.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="orannzsbb11.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="oraociei11.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OraOps11w.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Start\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebEngine\WebEngine.csproj">
+      <Project>{be5d5703-911e-4145-8844-3692fffd3081}</Project>
+      <Name>WebEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

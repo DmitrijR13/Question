@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9876ACA5-3C7B-41CB-8C4C-AA214B92E13A}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Questionnaire.WebSite</RootNamespace>
+    <AssemblyName>Questionnaire.WebSite</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+    <PrecompileBeforePublish>true</PrecompileBeforePublish>
+    <PublishDatabases>true</PublishDatabases>
+    <PlatformTarget>x86</PlatformTarget>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Calabonga.Mvc.Extensions">
+      <HintPath>..\packages\MvcTools.1.8.1\lib\net40\Calabonga.Mvc.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Calabonga.Xml.Exports">
+      <HintPath>..\packages\XmlExport.0.2.4\lib\net40\Calabonga.Xml.Exports.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\dll\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.DataAccess, Version=10.2.0.100, Culture=neutral, PublicKeyToken=89b483f429c47342">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\dll\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BootstrapBundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ComplaintController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PluginController.cs" />
+    <Compile Include="Controllers\QuestionnaireController.cs" />
+    <Compile Include="Controllers\QuestionnaireFullController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Core\AbstractController.cs" />
+    <Compile Include="Core\AbstractWebViewPage.cs" />
+    <Compile Include="Core\Configuration.cs" />
+    <Compile Include="Core\DataModule.cs" />
+    <Compile Include="Core\FileSession.cs" />
+    <Compile Include="Core\Grid\Filter.cs" />
+    <Compile Include="Core\Grid\GridModelBinder.cs" />
+    <Compile Include="Core\Grid\GridOperations.cs" />
+    <Compile Include="Core\Grid\GridOptions.cs" />
+    <Compile Include="Core\Grid\GridResult.cs" />
+    <Compile Include="Core\Grid\Rule.cs" />
+    <Compile Include="Core\ImageHelper.cs" />
+    <Compile Include="Core\Lazy.cs" />
+    <Compile Include="Core\LinqExtensions.cs" />
+    <Compile Include="Core\PermissionCheck.cs" />
+    <Compile Include="Core\StringEnum.cs" />
+    <Compile Include="Core\UserSession.cs" />
+    <Compile Include="Core\WhereOperation.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AnswerModel.cs" />
+    <Compile Include="Models\CharterModel.cs" />
+    <Compile Include="Models\ComplaintModel.cs" />
+    <Compile Include="Models\IPAddressModel.cs" />
+    <Compile Include="Models\JournalMarkAnswerModel.cs" />
+    <Compile Include="Models\JournalMarkModel.cs" />
+    <Compile Include="Models\JournalMarkMOModel.cs" />
+    <Compile Include="Models\JournalMarkSMOModel.cs" />
+    <Compile Include="Models\JournalMarkVotingModel.cs" />
+    <Compile Include="Models\JournalModel.cs" />
+    <Compile Include="Models\JournalMarkQuestionModel.cs" />
+    <Compile Include="Models\JournalVotingModel.cs" />
+    <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\MOOrganizationModel.cs" />
+    <Compile Include="Models\PermissionModel.cs" />
+    <Compile Include="Models\PluginModel.cs" />
+    <Compile Include="Models\PreQuestionnaireModel.cs" />
+    <Compile Include="Models\QuestionAnswerModel.cs" />
+    <Compile Include="Models\QuestionFullModel.cs" />
+    <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\QuestionnaireModel.cs" />
+    <Compile Include="Models\ReadyModel.cs" />
+    <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\SMOOrganizationModel.cs" />
+    <Compile Include="Models\StatisticsModel.cs" />
+    <Compile Include="Models\StatisticTableResultModel.cs" />
+    <Compile Include="Models\TypeCategoryComplaintModel.cs" />
+    <Compile Include="Models\TypeDealComplaintModel.cs" />
+    <Compile Include="Models\TypeStateComplaintModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\VotingAnswerModel.cs" />
+    <Compile Include="Models\VotingInfoCheckModel.cs" />
+    <Compile Include="Models\VotingQuestionModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ajaxfileupload.css" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootswatch.css" />
+    <Content Include="Content\complaint.css" />
+    <Content Include="Content\images\arrow_yes.png" />
+    <Content Include="Content\images\close.png" />
+    <Content Include="Content\images\error_message2.png" />
+    <Content Include="Content\images\all_error_message.png" />
+    <Content Include="Content\images\pop_up_statistic_bg.png" />
+    <Content Include="Content\styleForBlind.css" />
+    <Content Include="Content\datetimepicker\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\datetimepicker\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\datetimepicker\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\datetimepicker\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\datetimepicker\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\datetimepicker\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\datetimepicker\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\datetimepicker\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\datetimepicker\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\datetimepicker\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\datetimepicker\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\datetimepicker\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\datetimepicker\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\datetimepicker\jquery.ui.core.css" />
+    <Content Include="Content\datetimepicker\jquery.ui.datepicker.css" />
+    <Content Include="Content\datetimepicker\jquery.ui.theme.css" />
+    <Content Include="Content\datetimepicker\jquery.ui.timepicker.css" />
+    <Content Include="Content\images\ambulator_help.png" />
+    <Content Include="Content\images\border-right_top_menu.png" />
+    <Content Include="Content\images\cercle_current_level.png" />
+    <Content Include="Content\images\cercle_level.png" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\images\active.png" />
+    <Content Include="Content\images\add.png" />
+    <Content Include="Content\images\add_button_bg.png" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\bg-button-drop.png" />
+    <Content Include="Content\images\bottom_dashed_border.png" />
+    <Content Include="Content\images\close_pop_up.png" />
+    <Content Include="Content\images\Create_Tb.png" />
+    <Content Include="Content\images\Delete_icon.png" />
+    <Content Include="Content\images\Delete_tb.png" />
+    <Content Include="Content\images\Edit_icon.png" />
+    <Content Include="Content\images\excel_7938.png" />
+    <Content Include="Content\images\eye.png" />
+    <Content Include="Content\images\eye2.png" />
+    <Content Include="Content\images\input_logon_email_bg.png" />
+    <Content Include="Content\images\input_logon_pass_bg.png" />
+    <Content Include="Content\images\item_menu_adminka_active_bg.png" />
+    <Content Include="Content\images\item_menu_adminka_bg.png" />
+    <Content Include="Content\images\left_arrow.png" />
+    <Content Include="Content\images\list.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\login_button.png" />
+    <Content Include="Content\images\medical_help.png" />
+    <Content Include="Content\images\menu_bg.png" />
+    <Content Include="Content\images\name_project_submenu_bg.png" />
+    <Content Include="Content\images\none_right_arrow.png" />
+    <Content Include="Content\images\person.png" />
+    <Content Include="Content\images\person2.png" />
+    <Content Include="Content\images\Questioning.png" />
+    <Content Include="Content\images\Questioning2.png" />
+    <Content Include="Content\images\radio-button-active-bg.png" />
+    <Content Include="Content\images\radio-button-bg.png" />
+    <Content Include="Content\images\refresh.png" />
+    <Content Include="Content\images\right_arrow.png" />
+    <Content Include="Content\images\save_button_bg.png" />
+    <Content Include="Content\images\select_itarm_arrow.png" />
+    <Content Include="Content\images\setting.png" />
+    <Content Include="Content\images\setting_hover.png" />
+    <Content Include="Content\images\shadow_under_title.png" />
+    <Content Include="Content\images\Show_icon.png" />
+    <Content Include="Content\images\spinner.gif" />
+    <Content Include="Content\images\static_help.png" />
+    <Content Include="Content\images\statistic.png" />
+    <Content Include="Content\images\statistic_menuadminka.png" />
+    <Content Include="Content\images\subitem_menu_adminka_bg.png" />
+    <Content Include="Content\images\submenu_bg.png" />
+    <Content Include="Content\images\wait.gif" />
+    <Content Include="Content\images\A_1.ico" />
+    <Content Include="Content\jquery.editable-select.css" />
+    <Content Include="Content\PIE.htc" />
+    <Content Include="Content\redmond\images\animated-overlay.gif" />
+    <Content Include="Content\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\redmond\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Content\redmond\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_666666_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\redmond\jquery-ui-1.10.2.custom.css" />
+    <Content Include="Content\redmond\jquery-ui-1.10.2.custom.min.css" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\ui.jqgrid.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\bootswatch.less" />
+    <Content Include="Content\variables.less" />
+    <Content Include="Content\font\Lobster.ttf" />
+    <Content Include="A_1.ico" />
+    <Content Include="App_Code\Content.cshtml" />
+    <None Include="Properties\PublishProfiles\Profile.pubxml" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\Admin.js" />
+    <Content Include="Scripts\ajaxfileupload.js" />
+    <Content Include="Scripts\bootstrap-affix.js" />
+    <Content Include="Scripts\bootstrap-alert.js" />
+    <Content Include="Scripts\bootstrap-button.js" />
+    <Content Include="Scripts\bootstrap-carousel.js" />
+    <Content Include="Scripts\bootstrap-collapse.js" />
+    <Content Include="Scripts\bootstrap-dropdown.js" />
+    <Content Include="Scripts\bootstrap-modal.js" />
+    <Content Include="Scripts\bootstrap-scrollspy.js" />
+    <Content Include="Scripts\bootstrap-tab.js" />
+    <Content Include="Scripts\bootstrap-tooltip.js" />
+    <Content Include="Scripts\bootstrap-transition.js" />
+    <Content Include="Scripts\bootstrap-typeahead.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootswatch.js" />
+    <Content Include="Scripts\bsa.js" />
+    <Content Include="Scripts\Complaint.js" />
+    <Content Include="Scripts\datepicker.ru.js" />
+    <Content Include="Scripts\default.js" />
+    <Content Include="Scripts\Flot\jquery.flot.js" />
+    <Content Include="Scripts\Flot\jquery.flot.min.js" />
+    <Content Include="Scripts\Flot\jquery.flot.stack.js" />
+    <Content Include="Scripts\Flot\jquery.flot.stack.min.js" />
+    <Content Include="Scripts\Grid\grid.locale-en.js" />
+    <Content Include="Scripts\Grid\grid.locale-ru.js" />
+    <Content Include="Scripts\Grid\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\Grid\jquery.jqGrid.src.js" />
+    <Content Include="Scripts\jpicker-1.1.6.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-migrate-1.1.1.js" />
+    <Content Include="Scripts\jquery-migrate-1.1.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.2.js" />
+    <Content Include="Scripts\jquery-ui-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui-timepicker-addon.js" />
+    <Content Include="Scripts\jquery.editable-select.js" />
+    <Content Include="Scripts\jquery.fileupload.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.iframe-transport.js" />
+    <Content Include="Scripts\jquery.ocupload-1.1.2.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\Questionnaire.js" />
+    <Content Include="Scripts\QuestionnaireFull.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\serviceWindow.js" />
+    <Content Include="Scripts\Statistics.js" />
+    <Content Include="Scripts\Video\jwplayer.js" />
+    <Content Include="Scripts\Video\player.swf" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Questionnaire\Index.cshtml" />
+    <Content Include="Views\Home\_CreateMenuItems.cshtml" />
+    <Content Include="Views\Questionnaire\_Question.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_EditQuestion.cshtml" />
+    <Content Include="Views\Admin\_EditUser.cshtml" />
+    <Content Include="Views\Admin\_EditCategory.cshtml" />
+    <Content Include="Views\Questionnaire\_Ready.cshtml" />
+    <Content Include="Views\Plugin\Index.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Admin\_EditIPAddress.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\Statistics\_Enumeration.cshtml" />
+    <Content Include="Views\Admin\_MenuItems.cshtml" />
+    <Content Include="Views\Admin\_EditRole.cshtml" />
+    <Content Include="Views\Statistics\_Journal.cshtml" />
+    <Content Include="Views\Plugin\Questionnaire.cshtml" />
+    <Content Include="Views\Shared\_LayoutExtended.cshtml" />
+    <Content Include="Views\Questionnaire\_VotingInfoCheck.cshtml" />
+    <Content Include="Views\QuestionnaireFull\Index.cshtml" />
+    <Content Include="Views\QuestionnaireFull\_Question.cshtml" />
+    <Content Include="Views\Home\PreQuestionnaire.cshtml" />
+    <Content Include="Views\Admin\_EditMOOrganization.cshtml" />
+    <Content Include="Views\Admin\_EditSMOOrganization.cshtml" />
+    <Content Include="Views\Statistics\_JournalMarkCommon.cshtml" />
+    <Content Include="Views\Statistics\_JournalMarkMO.cshtml" />
+    <Content Include="Views\Statistics\_JournalMarkSMO.cshtml" />
+    <Content Include="Views\Admin\_ItemAnswers.cshtml" />
+    <Content Include="Views\Complaint\FillComplaint.cshtml" />
+    <Content Include="Views\Complaint\ReadyComplaint.cshtml" />
+    <Content Include="Views\Complaint\Deal.cshtml" />
+    <Content Include="Views\Complaint\_EditDeal.cshtml" />
+    <Content Include="Views\Complaint\_EditState.cshtml" />
+    <Content Include="Views\Complaint\_EditCategory.cshtml" />
+    <Content Include="Views\Complaint\State.cshtml" />
+    <Content Include="Views\Complaint\Category.cshtml" />
+    <Content Include="Views\Complaint\Complaint.cshtml" />
+    <Content Include="Views\Complaint\_EditComplaint.cshtml" />
+    <Content Include="Views\Plugin\PreQuestionnaire.cshtml" />
+    <Content Include="Views\Shared\_LayoutSimple.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\video\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{65cb4979-267b-4d04-a534-0a2818e375c6}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebEngine\WebEngine.csproj">
+      <Project>{be5d5703-911e-4145-8844-3692fffd3081}</Project>
+      <Name>WebEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59194</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:16327/Control/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

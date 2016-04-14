@@ -1,0 +1,29 @@
+﻿@model Questionnaire.WebSite.Models.TypeCategoryComplaintModel
+
+<script>
+    setAjaxForm("popupContent");
+</script>
+
+@using (Html.BeginForm("EditCategory", "Complaint", FormMethod.Post, new { id = "ajaxForm" }))
+{
+    <a href="#" class="popupClose" onclick="ClosePopup()"></a>
+    <h3>Добавление/Редактирование категории жалоб</h3>
+    <div class="popupForm">
+        <div class="popupItem">
+            @Html.HiddenFor(m => m.ID)
+            @Html.Hidden("IsNew", (Boolean)ViewBag.IsNew)
+            <span class="ttl">Название:</span>
+            @Html.TextBoxFor(m => m.Name, new { @class = "name" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div class="popupItem">
+            <span class="ttl">Вес:</span>
+            @Html.TextBoxFor(m => m.Price, new { @class = "price" })
+            @Html.ValidationMessageFor(m => m.Price)
+        </div>
+    </div>
+    <div class="popupAction">
+        <a href="#" class="cancel" onclick="ClosePopup()">Отмена</a>
+        <a href="#" class="submit" onclick="$(this).closest('form').submit(); return false;">Отправить</a>
+    </div>
+}

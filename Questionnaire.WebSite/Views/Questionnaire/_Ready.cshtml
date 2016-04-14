@@ -1,0 +1,58 @@
+﻿@model Questionnaire.WebSite.Models.ReadyModel
+
+<script>
+    var isPlugin = $("#hdnIsPlugin").val();
+    if (isPlugin == "True") {
+        $("#generalReady").remove();
+    }
+    else {
+        $("#pluginReady").remove();
+    }
+</script>
+
+<h1 class="thanks">Благодарим Вас<br /> за успешно пройденное анкетирование<br /> на тему "@Model.ThemeQuestionnaire"!</h1><br />
+<h2 class="numberVoting">номер анкеты @Model.NumberVoting</h2>
+
+<div id="generalReady" class="categories_help">
+    @foreach (var item in Model.Charters)
+    {
+        <a href='@Url.Action("PreQuestionnaire", "Home", new { charterID = item.ID })'>
+            <div class="category_help">
+                @if (item.ID == 1)
+                {
+                    <img src="@Url.Content("~/Content/images/static_help.png")"><div class="title_help">@item.Name</div>
+                }
+                else if (item.ID == 21)
+                {
+                    <img src="@Url.Content("~/Content/images/ambulator_help.png")"><div class="title_help">@item.Name</div>
+                }
+                else if (item.ID == 22)
+                {
+                    <img src="@Url.Content("~/Content/images/medical_help.png")"><div class="title_help">@item.Name</div>
+                }
+            </div>
+        </a>
+    }
+</div>
+
+<div id="pluginReady" class="categories_help">
+    @foreach (var item in Model.Charters)
+    {
+        <a href='@Url.Action("PreQuestionnaire", "Plugin", new { charterID = item.ID })'>
+            <div class="category_help">
+                @if (item.ID == 1)
+                {
+                    <img src="@Url.Content("~/Content/images/static_help.png")"><div class="title_help">@item.Name</div>
+                }
+                else if (item.ID == 21)
+                {
+                    <img src="@Url.Content("~/Content/images/ambulator_help.png")"><div class="title_help">@item.Name</div>
+                }
+                else if (item.ID == 22)
+                {
+                    <img src="@Url.Content("~/Content/images/medical_help.png")"><div class="title_help">@item.Name</div>
+                }
+            </div>
+        </a>
+    }
+</div>

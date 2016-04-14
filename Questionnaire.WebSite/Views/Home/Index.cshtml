@@ -1,0 +1,28 @@
+﻿@model List<Questionnaire.WebSite.Models.CharterModel>
+
+@{
+    ViewBag.Title = "Анкетирование";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="winContent_center_block">
+    <div id="winContent">
+        <div class="categories_help">
+            @foreach (var item in Model)
+            {
+                <a href='@Url.Action("PreQuestionnaire", "Home", new { charterID = item.ID })'>
+                    <div class="category_help">
+                        @if (item.ID == 1)
+                        {
+                            <img src="@Url.Content("~/Content/images/static_help.png")"><div class="title_help">@item.Name</div>
+                        }
+                        else
+                        {
+                            <img src="@Url.Content("~/Content/images/medical_help.png")"><div class="title_help">@item.Name</div>
+                        }
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+﻿@using Questionnaire.WebSite.Models
+
+@model List<MenuItem>
+
+@foreach(var item in Model)
+{
+    <a id="@item.ID" href="#" onclick="@item.OnClick"><li class="item_menu_adminka"><img src="@item.Url">@item.Name<div class="arrow"></div></li></a>
+                
+    if (item.MenuItems != null)
+    {
+        <ul class="subitem_menu" id="subitem_menu1">
+        @foreach (var itemDaughter in item.MenuItems)
+        {
+            <a href="#" onclick="@itemDaughter.OnClick"><li class="subitem_adminka">@itemDaughter.Name</li></a>
+        }
+        </ul>
+    }
+}

@@ -1,0 +1,87 @@
+﻿@model Questionnaire.WebSite.Models.JournalModel
+
+<script>
+    $('.dataJournal')
+        .mouseover(function () {
+            $("#message_statistic").show();
+            $("#message_statistic").offset({ top: $(this).offset().top + 40, left: $(this).offset().left - 310 });
+            $("#message_statistic_workspace").html($(this).find(".txtValue").html())
+        })
+        .mouseout(function () {
+            $("#message_statistic").hide();
+            $("#message_statistic_workspace").html("");
+        });
+
+    $("#fltDateVote").datepicker();
+
+    $("#fltDateVote").bind('change', function () {
+
+    });
+</script>
+
+@*<div class="buttons_top">
+    <a href="#" onclick="ReplaceView()"><div class="save_button_left">Изменить&nbsp;вид</div></a>
+</div>*@
+
+<table class="table table-bordered table-striped table-hover table-statistics">
+    <thead>
+        <tr>
+            <th class="thTitle">Номер анкеты</th>
+            <th class="thTitle">Дата заполнения</th>
+            <th class="thTitle">Название организации</th>
+            @for (Int32 i = 0; i < Model.Questions.Count; i++)
+            {
+                <th class="dataJournal">
+                    <div class="intValue">@Model.Questions[i].NumberSequence</div>
+                    <div class="txtValue" style="display: none;">@Model.Questions[i].TextQuestion</div>
+                </th>
+            }
+        </tr>
+        <tr>
+            <th><input id="fltVotingID" type="text" value="@Model.FltVotingID" onkeyup="getJournalEvent(@Model.CharterID, 1, event)" class="fltText" /></th>
+            <th><input id="fltDateVote" type="text" value="@Model.FltDateVote" onchange="getJournal(@Model.CharterID, 1)" class="fltText" /></th>
+            <th><input id="fltNameOrganization" type="text" value="@Model.FltNameOrganization" onkeyup="getJournalEvent(@Model.CharterID, 1, event)" class="fltText" /></th>
+            <th colspan="@Model.Questions.Count"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ for (Int32 i = 0; i < Model.JournalVoting.Count; i++)
+            {
+            <tr>
+                <td>
+                    @Model.JournalVoting[i].ID
+                </td>
+                <td>
+                    @Model.JournalVoting[i].DateVote
+                </td>
+                <td>
+                    @Model.JournalVoting[i].NameOrganization
+                </td>
+                @for (Int32 j = 0; j < Model.JournalVoting[i].QuestionAnswers.Count; j++)
+                {
+                    <td class="dataJournal">
+                        <div class="intValue">@Model.JournalVoting[i].QuestionAnswers[j].NumberAnswer</div>
+                        <div class="txtValue" style="display: none;">@Model.JournalVoting[i].QuestionAnswers[j].TextAnswer</div>
+                    </td>   
+                }
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<div>
+    @foreach (var item in Model.AnswerIDs)
+    {
+        @Html.Hidden("answerID", item, new { @class = "chooseAnswerID" })
+    }
+
+    @for (Int32 i = 0; i < Model.CountPages; i++)
+    {
+        <a href="#" onclick="getJournal(@Model.CharterID, @(i+1))">@(i+1) </a>
+    }
+</div>
+
+<div id="message_statistic" style="display:none">
+    <div id="message_statistic_workspace"></div>
+</div>

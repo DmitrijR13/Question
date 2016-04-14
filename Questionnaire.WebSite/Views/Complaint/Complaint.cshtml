@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Жалобы</title>
+
+    <link href="@Url.Content("~/Content/complaint.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ui.jqgrid.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/redmond/jquery-ui-1.10.2.custom.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ui.jqgrid.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.10.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/default.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Complaint.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/jquery.iframe-transport.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Grid/grid.locale-ru.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Grid/jquery.jqGrid.src.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/serviceWindow.js")" type="text/javascript"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            getComplaint();
+        });
+    </script>
+</head>
+<body style="width:920px;">
+    <div id="popup" style="display:none">
+        <div class="popupLayer"></div>
+        <div class="popup">
+            <div id="popupContent" class="popupInner">
+            </div>
+        </div>
+    </div>
+
+    <div class="admin">
+        <div id="areaContent" class="gridWrapper">
+        </div>
+    </div>
+</body>
+</html>

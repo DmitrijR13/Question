@@ -1,0 +1,24 @@
+﻿@model Questionnaire.WebSite.Models.TypeStateComplaintModel
+
+<script>
+    setAjaxForm("popupContent");
+</script>
+
+@using (Html.BeginForm("EditState", "Complaint", FormMethod.Post, new { id = "ajaxForm" }))
+{
+    <a href="#" class="popupClose" onclick="ClosePopup()"></a>
+    <h3>Добавление/Редактирование состояния обращения</h3>
+    <div class="popupForm">
+        <div class="popupItem">
+            @Html.HiddenFor(m => m.ID)
+            @Html.Hidden("IsNew", (Boolean)ViewBag.IsNew)
+            <span class="ttl">Название:</span>
+            @Html.TextBoxFor(m => m.Name, new { @class = "name" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="popupAction">
+        <a href="#" class="cancel" onclick="ClosePopup()">Отмена</a>
+        <a href="#" class="submit" onclick="$(this).closest('form').submit(); return false;">Отправить</a>
+    </div>
+}

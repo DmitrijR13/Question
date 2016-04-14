@@ -1,0 +1,60 @@
+﻿@model Questionnaire.WebSite.Models.QuestionModel
+@for (Int32 i = 0; i < Model.Answers.Count; i++)
+{
+    <div class="answer_pop_up answer">
+        <div class="answer_item">
+            <span class="ttl">Ответ:</span>
+        </div>
+
+        <div class="answer_item">
+            @Html.HiddenFor(m => m.Answers[i].ID, new { @class = "idAnswer" })
+            @Html.ValidationMessageFor(m => m.Answers[i].ID)
+            <span class="ttl">Текст&nbsp;ответа:</span>
+            @Html.TextBoxFor(m => m.Answers[i].TextAnswer, new { @class = "textAnswer" })
+            @Html.ValidationMessageFor(m => m.Answers[i].TextAnswer)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Доп. поле ответа 1:</span>
+            @Html.TextBoxFor(m => m.Answers[i].TextAnswerAdditional1, new { @class = "textAnswerAdditional1" })
+            @Html.ValidationMessageFor(m => m.Answers[i].TextAnswerAdditional1)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Доп. поле ответа 2:</span>
+            @Html.TextBoxFor(m => m.Answers[i].TextAnswerAdditional2, new { @class = "textAnswerAdditional2" })
+            @Html.ValidationMessageFor(m => m.Answers[i].TextAnswerAdditional2)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Цена&nbsp;ответа:</span>
+            @Html.TextBoxFor(m => m.Answers[i].Score, new { @class = "score" })
+            @Html.ValidationMessageFor(m => m.Answers[i].Score)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Последовательность:</span>
+            @Html.TextBoxFor(m => m.Answers[i].NumberSequence, new { @class = "numberSequence" })
+            @Html.ValidationMessageFor(m => m.Answers[i].NumberSequence)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Следующий&nbsp;вопрос:</span>
+            @Html.DropDownListFor(m => m.Answers[i].NextQuestionID, new SelectList((IEnumerable<SelectListItem>)ViewBag.Questions, "Value", "Text", Model.Answers[i].NextQuestionID), "-- Выберите --", new { @class = "nextQuestion" })
+            @Html.ValidationMessageFor(m => m.Answers[i].NextQuestionID)
+        </div>
+
+        @if (Model.Answers.Count > 1)
+        {
+            <div class="answer_item">
+                <a href="#" onclick="RemoveAnswer(this)"><div class="drop_button delete_answer">Удалить</div></a>
+            </div>
+        }
+        else
+        {
+            <div class="answer_item">
+                <a href="#" onclick="RemoveAnswer(this)"><div class="drop_button delete_answer" style="display:none;">Удалить</div></a>
+            </div>
+        }
+    </div>
+}

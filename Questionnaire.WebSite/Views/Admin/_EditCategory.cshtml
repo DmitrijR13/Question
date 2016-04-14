@@ -1,0 +1,29 @@
+﻿@model Questionnaire.WebSite.Models.CharterModel
+
+<script>
+    setAjaxForm("popupContent");
+    $("#titlePopup").text('Добавление/Редактирование категории');
+</script>
+
+@using (Html.BeginForm("EditCategory", "Admin", FormMethod.Post, new { id = "ajaxForm" }))
+{
+    <div class="answer_pop_up answer">
+        <div class="answer_item">
+            @Html.HiddenFor(m => m.ID)
+            @Html.Hidden("IsNew", (Boolean)ViewBag.IsNew)
+            <span class="ttl">Название:</span>
+            @Html.TextBoxFor(m => m.Name, new { @class = "name" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+
+        @*<div class="answer_item">
+            <span class="ttl">Картинка:</span>
+            @Html.TextBoxFor(m => m.Image, new { type = "file" })
+            @Html.ValidationMessageFor(m => m.Image)
+        </div>*@
+    </div>
+        
+    <div class="buttons_botoom">
+        <a href="#" onclick="$(this).closest('form').submit(); return false;"><div class="save_button">Сохранить</div></a>
+    </div>
+}

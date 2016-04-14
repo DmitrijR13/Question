@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Анкетирование (плагин)</title>
+    @*@Styles.Render("~/Content/css")
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jsproj")*@
+
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Content/css")
+
+    @if (Session.IsBlind)
+    {
+        @Styles.Render("~/Content/blind/css")
+    }
+    else
+    {
+        @Styles.Render("~/Content/unblind/css")
+    }
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jsproj")
+</head>
+<body>
+    <div id="winContent_center_block">
+        <div id="winContent">
+            <div class="categories_help">
+                @foreach (var item in Model)
+                {
+                    //<a href='@Url.Action("Questionnaire", "Plugin", new { charterID = item.ID })'>
+                    <a href='@Url.Action("PreQuestionnaire", "Plugin", new { charterID = item.ID })'>
+                        <div class="category_help">
+                            @if (item.ID == 1)
+                            {
+                                <img src="@Url.Content("~/Content/images/static_help.png")"><div class="title_help">@item.Name</div>
+                            }
+                            else if (item.ID == 21)
+                            {
+                                <img src="@Url.Content("~/Content/images/ambulator_help.png")"><div class="title_help">@item.Name</div>
+                            }
+                            else if (item.ID == 22)
+                            {
+                                <img src="@Url.Content("~/Content/images/medical_help.png")"><div class="title_help">@item.Name</div>
+                            }
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

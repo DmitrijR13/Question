@@ -1,0 +1,1247 @@
+﻿* {margin: 0; padding: 0; outline: 0px dotted red; border: 0}
+
+/*фон для страницы синий*/
+html {
+    background: #d4dbe5;
+    height: 100%;
+}
+
+body {
+    min-width: 1000px;
+    height: 100%;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+/*скрываем radio кнопки по умолчанию*/
+input[type="radio"] {display:none}
+
+/*Рисуем radio кнопку  в спане*/
+input[type="radio"] + div label span {
+    display:inline-block;
+    width:21px;
+    height:21px;
+    margin:-5px 4px 0 0;
+    vertical-align:middle;
+    background:url(images/radio-button-bg.png) left top no-repeat;
+    cursor:pointer;
+}
+
+.fltText {
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 2px #636262;
+    margin: 8px 0;
+    padding: 5px;
+}
+
+#captcha {
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 2px #636262;
+    margin: 8px 0;
+    padding: 5px;
+    width: 195px;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1300px) {
+    #moOrganizations {
+        width: 290px;
+    }
+
+    #smoOrganizations {
+        width: 290px;
+    }
+
+    #tbFindMOOrganization {
+        width: 280px;
+    }
+
+    #tbFindSMOOrganization {
+        width: 280px;
+    }
+}
+
+@media screen and (min-width: 1301px) {
+    #moOrganizations {
+        width: 490px;
+    }
+
+    #smoOrganizations {
+        width: 490px;
+    }
+
+    #tbFindMOOrganization {
+        width: 480px;
+    }
+
+    #tbFindSMOOrganization {
+        width: 480px;
+    }
+}
+
+.thTitle {
+    width:175px;
+}
+
+/*Отступы между вариантами radio кнопок ответов*/
+.option_answer_div {
+    float: left;
+    clear: both;
+}
+
+/*лотступы между checkbox ответов    white-space: nowrap;*/
+.alignment_answers {
+    margin: 5px 0;
+    max-width: 
+}
+
+/*checed радио кнопка*/
+input[type="radio"]:checked + div label span {background:url(images/radio-button-active-bg.png) no-repeat;}
+
+/*Синий блок на всю ширину*/
+#menu {height: 30px;
+	background: url(images/menu_bg.png);
+	margin-bottom:20px;
+	box-shadow: 0 0 5px #636262;
+	padding: 10px 10px 10px 20px;
+}
+
+/*Блок с пунктами меню*/
+#menu #items_menu {float: right; margin-right: 10px}
+#menu #items_menu img {
+	float: right;
+
+	}
+
+.logon_top_menu {
+	float: right;
+	margin-top: -3px;
+}
+.logon_top_menu .avatar_logon {float: left;}
+.logon_top_menu .avatar_logon_img { height: 30px; margin-top: 3px; float: none; }
+.logon_top_menu .buttons_logon {clear: both;float: left;}
+.logon_top_menu .buttons_logon a {color: white; font-family: Lobster;
+opacity: 0.9;
+}
+
+.connection_to_sub_menu {background: url(images/submenu_bg.png);width:40px; height: 37px; }
+    
+.connection_to_sub_menu img {
+    margin: -3px -2px 0 0;
+}
+
+.submen {
+	display: none;
+	margin:-27px 0 0 1px;
+}
+
+.splin {
+	width:5px;
+	height: 50px;
+	margin: -10px 5px 0 5px;
+	float: right;
+	background:url(images/border-right_top_menu.png) no-repeat;
+}
+
+.items_submenu {
+	border-radius: 0 5px 5px;
+	background: url(images/submenu_bg.png);
+	padding: 10px;
+	position: absolute;
+	opacity: 1px;
+	z-index: 1;
+	box-shadow: 1px 1px 5px #636262;
+}
+
+.items_submenu ul li {
+    list-style-type: none;
+}
+
+.items_submenu ul li a {
+	color: #fff;
+	font-family: Lobster;
+	font-weight: normal;
+}
+
+#setting {
+    float:right;
+}
+
+#menu #setting #href:hover {height:30px; width: 43px; background: url(images/setting_hover.png)}
+#menu #setting #href {height:30px; width: 43px; background: url(images/setting.png); display: block;}
+
+#menu #setting #href:hover + .submen {display: block;}
+.submen:hover {display: block;}
+.submen:hover  #href {background: url(images/setting_hover.png)}
+
+#name_project {float: left;}
+#name_project a {padding-bottom:  20px}
+#name_project :hover + .submenu_name_project_block {display: block;}
+.submenu_name_project_block:hover {display: block;}
+
+.item_menu_adminka :hover + .submenu_charter {display: block;}
+.submenu_charter:hover {display: block;}
+.submenu_charter {display:none;}
+
+/*Подменю для "Анкетирования" в верхнем меню*/
+.submenu_name_project_block {
+	position: absolute;
+	z-index: 2;
+	padding-top: 10px;
+	min-width: 200px;
+	float: left;
+    display: none;
+}
+
+.submenu_name_project {
+	
+	box-shadow: 0px 1px 3px #636262 inset;
+	background: #fff;
+	clear: left;
+	padding: 8px;
+	border-radius:  0 0 5px 5px;
+}
+
+.submenu_name_project ul {
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	padding: 5px 10px 10px;
+	list-style-type: none;
+	box-shadow: 1px 1px 2px #636262 inset;
+	background: url(images/name_project_submenu_bg.png);
+}
+
+.submenu_name_project ul li {
+	border-bottom: 1px solid #ccc;
+}
+
+.submenu_name_project ul li a {
+	text-decoration: none;
+	color: #000;
+}
+
+.submenu_charter {
+	position: absolute;
+	z-index: 2;
+	padding-top: 10px;
+	min-width: 200px;
+	float: left;
+    margin-left: 80px;
+	/*display: none;*/
+}
+
+.submenu_charter {
+	
+	box-shadow: 0px 1px 3px #636262 inset;
+	background: #fff;
+	clear: left;
+	padding: 8px;
+	border-radius:  0 0 5px 5px;
+}
+
+.submenu_charter ul {
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	padding: 5px 10px 10px;
+	list-style-type: none;
+	box-shadow: 1px 1px 2px #636262 inset;
+	background: url(images/name_project_submenu_bg.png);
+}
+
+.submenu_charter ul li {
+	border-bottom: 1px solid #ccc;
+}
+
+.submenu_charter ul li a {
+	text-decoration: none;
+	color: #000;
+    font-weight: normal;
+}
+
+/*Кнопки вставленные картинками в меню*/
+#menu #eye img{height: 32px; margin-top: -2px;}
+#menu #name_project img {height:30px; margin-right: 5px; display:inline-block;}
+#menu #statistic img{height:30px;}
+
+#menu #questioning img{height:30px; content: url(images/Questioning2.png)}
+
+.commonErrors {
+    margin: 0 auto;
+    width: 260px;
+    color: #ff0000;
+    padding-bottom: 10px;
+}
+
+/*для checkbox*/
+.check { background:url("images/radio-button-bg.png") no-repeat; padding: 5px;}
+
+/*Основной блок, который выровнен по центру*/
+#winContent_center_block {width: 80%; margin: 0 auto; font-size: 16px; font-style:italic; font-family: "Times New Roman", Times, serif, Arial; color: #7a7a7a; }
+
+/*Основной блок с белым фоном overflow: auto;*/
+#winContent { background: #fff; box-shadow: 0 0 5px #636262; margin-bottom:20px; padding: 20px }
+
+/*Заголовок h1*/
+#winContent h1 {text-align:center; font-family: Lobster; src(font/Lobster.ttf); font-style:normal}
+
+/*Тень под заголовком*/
+#winContent .shadow_under_title {background: url(images/shadow_under_title.png) no-repeat center; height:5px; /*margin-bottom: 70px;*/}
+
+/*Выравниваем вопрос по центру*/
+#center_quation { width: 51%; min-width:550px; margin: 0 auto;}
+
+/*Выравниваем вопрос по центру (мини-вариант)*/
+#center_quation_mini { width: 200px; margin: 0 auto;}
+
+/*стрелка для предыдущего вопроса*/
+#winContent #back_quation_div {float:left; height:30px; width: 30px; margin: 30px 20px 0 0}
+#winContent #back_quation_div #back_quation {background: url(images/left_arrow.png) no-repeat; height:30px; width: 30px;}
+
+/*блок с вопросом*/
+#winContent .question {
+    /*float:left;*/
+    margin:0 auto;
+    width: 81%;
+    text-align: center;
+}
+
+#winContent .question_one {
+    float:left; 
+    width: 78%; 
+    text-align: center;
+    margin-left: 20px;
+}
+
+.question_float_none {
+    margin-top: 40px;
+}
+
+.question_float_none .sides {
+    float: left;
+    width: 49%;
+    text-align: center;
+}
+
+.question_float_none input {
+    width: 250px;
+}
+
+.question_float_none select {
+    border: 1px solid #b4acac;
+    padding: 5px;
+    width: 260px;
+	border-radius: 5px;
+	box-shadow: 0 0 2px #636262;
+	margin: 8px 0;
+}
+
+
+
+
+/*стрелка для следующего вопроса*/
+#winContent #next_quation_div {float:left; height:30px; width: 30px; margin: 30px 0 0 20px}
+#winContent #next_quation_div #next_quation {background: url(images/right_arrow.png) no-repeat; height:30px; width: 30px;}
+
+/*Варианты ответов*/
+@media screen and (min-width: 1400px) {
+    .options_answer {
+    clear: both;
+    width: 80%;
+    padding: 0 0 40px 300px;
+    overflow: auto;
+    margin: 0 auto;
+    min-height: 60px;
+    }
+}
+
+
+@media screen and (max-width: 1400px) {
+    .options_answer {
+    clear: both;
+    width: 80%;
+    padding: 0 0 40px 250px;
+    overflow: auto;
+    margin: 0 auto;
+    min-height: 60px;
+    }
+}
+
+/*@media screen and (max-width: 1024px){
+    img.bg {
+        left: 50%;
+        margin-left: -512px; }
+}*/
+
+
+.block_answer_at_full_version {
+    /*width: 600px;*/
+    position: absolute;
+    /*margin-left: -50px;*/
+}
+
+
+.block_answer_at_min_version {
+    width: 355px;
+    position: absolute;
+    /*margin-left: -120px;*/
+}
+
+.insert_s_before_date {
+    width: 30px;
+    padding-top: 12px;
+    float: left;
+}
+
+.insert_po_before_date {
+width: 30px;
+padding-top: 12px;
+float: left;
+}
+
+#questionTable, #userTable, #categoryTable, #ipAddressTable {
+    padding-left: 10px;
+}
+
+div.parentError {
+    height: 70px;
+    width: 547px;
+    margin:0 auto;
+}
+
+div.errorMessage {
+    background: url(images/error_message2.png) center no-repeat;
+    width:380px;
+    height: 58px;
+    margin: 0 auto;
+}
+
+div.allErrorMessage {
+    background: url(images/all_error_message.png) center no-repeat;
+    width:490px;
+    height: 58px;
+    margin: 0 auto;
+}
+
+footer {
+    width: 80%; margin: 0 auto;
+}
+
+/*блок с копирайтами*/
+#copirate {background: url(images/bottom_dashed_border.png) repeat-x; text-align: center; padding:10px; font-style: italic; color: #7a7a7a}
+
+/*стили  для админки*/
+
+div.answersButton {
+    padding-bottom: 18px;
+    padding-top: 5px;
+}
+
+div.answersButton a {
+    margin-left: 15px;
+    width: 100px;
+    text-align: center;
+}
+
+div.answersButton .add_button {
+    margin-left: 15px;
+}
+
+div.typeQuestion input[type=radio] {
+    margin-left: 15px;
+}
+
+.body_adminki {
+    /*overflow: auto;*/
+    /*min-height:400px;*/
+ margin-bottom: 20px;
+ height: 86%;
+ width: 100%;
+ min-width: 1000px;
+ background: #fff;
+}
+
+/*левый сайдбар меню админки*/
+.left_sidebar_adminka {
+ float: left;
+ background: #333333;
+ width: 15%;
+ /*min-width: 200px;*/
+ color: red;
+ height: 100%;
+}
+
+/*Пункты меню левого меню админки */
+.left_sidebar_adminka .item_menu_adminka {
+padding: 10px 20px;
+background: url(images/item_menu_adminka_bg.png) repeat-x;
+border-bottom: 1px solid black;
+}
+
+/*выравнивание картинок в пунктах меню админки*/
+.left_sidebar_adminka .item_menu_adminka img {width:20px; margin: 0 5px -4px 0;}
+
+/*Иконка пункта меню статистики в фдминке*/
+/*#statistic_item_menu_adminka img {content: url(images/statistic_menuadminka.png);}
+#questioning_item_menu_adminka img {content: url(images/statistic_menuadminka.png);}*/
+
+/*цвет ссылок меню админки*/
+.left_sidebar_adminka a {color: #fff; text-decoration: none; font-weight: bold;}
+
+.fullAnswerText {
+    position: absolute;
+    margin-left: -30px;
+}
+
+.fullAnswerTextBottom {
+    margin-left: 2px;
+    float: left;
+    clear: both;
+}
+
+.formFullQuestionnaire .options_answer {
+    /*margin-left: -50px;*/
+}
+
+.formFullQuestionnaire .options_answer select {
+    /*margin-left: -65px;*/
+}
+
+.formFullQuestionnaire .options_answer #tbFind {
+    /*margin-left: -65px;*/
+    width: 450px;
+    margin-left: 2px;
+}
+
+.formOneQuestionnaire .options_answer select {
+    /*margin-left: -150px;*/
+}
+
+.formOneQuestionnaire .options_answer #tbFind {
+    /*margin-left: -150px;*/
+    width: 450px;
+    margin-left: 2px;
+}
+
+.formFullQuestionnaire .options_answer .divFind {
+    width: 454px;
+}
+
+.formOneQuestionnaire .options_answer .divFind {
+    width: 454px;
+}
+
+/*раскрытый список меню в админке*/
+.menu_adminka .active {
+ background: url(images/item_menu_adminka_active_bg.png) repeat-x;
+ border: none;
+}
+
+.menu_adminka .active .arrow {
+ float:right;
+ margin: 2px -27px 0 0 ;
+ width: 20px;
+ height: 20px;
+ background: url(images/select_itarm_arrow.png) no-repeat right;
+}
+
+/*подменю меню админки*/
+.subitem_menu .subitem_adminka {
+padding: 5px 20px;
+background: url(images/subitem_menu_adminka_bg.png) repeat-x;
+border-bottom: 1px solid #999999;
+}
+
+/*Рабочее пространство админки*/
+.main_workspace_adminka {
+ float: left;
+ background: #fff;
+ width: 83%;
+ padding: 20px 0 20px 20px;
+ overflow: auto;
+ /*min-width: 798px;*/
+ height: 93%;
+}
+
+/*@media screen and (min-width: 1000px) {
+.main_workspace_adminka {width: 790px;}
+}*/
+
+/*фон pop_up*/
+.pop_up_bg {
+ /*display: none;*/
+ position: fixed;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background: #cccccc;
+ opacity: 0.7;
+ -moz-opacity: 0.5;
+ filter:alpha(opacity=5);
+}
+
+/*само окно popup*/
+.pop_up_window {
+ /*display: none;*/
+ position: absolute;
+ min-width: 300px;
+ background: #fff;
+ width: 80%;
+ top: 60px;
+ /*height: 90%;*/
+ margin: 1% 0 0 -27%;
+ padding: 10px;
+ border-radius: 5px;
+ box-shadow: 0 0 10px #636262;
+ left:43%;
+}
+
+/*див с подчеркиванием заголовка окна и кнопкой закрыть*/
+.pop_up_window .header_pop_up {
+border-bottom: 1px dashed #ccc;
+overflow: auto;
+}
+
+.pop_up_window .header_pop_up .title_pop_up {
+float: left;
+}
+
+.pop_up_window .header_pop_up .close_pop_up {
+float: right;
+cursor: pointer;
+}
+
+.pop_up_window .header_pop_up .close_pop_up img {
+ width: 15px;
+}
+
+/*некстареа во всплывающем окне*/
+.pop_up_window textarea {border: 1px solid #999999;
+border-radius: 5px;
+width: 100%;
+height: 200px;
+box-shadow: 0 0 2px #636262;
+margin-bottom: 20px;
+}
+
+.pop_up_window div.answer_item input[type="text"], .pop_up_window div.answer_item select {
+    width: 770px;
+}
+
+.pop_up_window div.answer_item select {
+border: 1px solid #b4acac;
+width: 780px;
+}
+
+/*инпуты во всплывающем окне*/
+.pop_up_window input, .pop_up_window select, .options_answer input[type="text"], .options_answer select, .question input[type="text"], .question_float_none input[type="text"] {
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 0 0 2px #636262;
+	margin: 8px 0;
+}
+
+/*Поле текстовое в анкетировании*/
+.options_answer input[type="text"] {
+    width: 300px;
+}
+
+.options_answer select {
+    border: 1px solid #999999;
+    width: 460px;
+}
+
+.answer_pop_up {
+	padding: 20px 0;
+}
+
+/*Кнопка удалить во вспывающем окне*/
+.drop_button {
+background: url(images/bg-button-drop.png) repeat-x;
+color: #fff;
+display: inline-block;
+padding: 5px 20px;
+border-radius: 5px;
+box-shadow: 0px 3px 3px 0px #636262;
+}
+
+.answer_item span.ttl {
+    display: inline-block;
+    vertical-align: middle;
+    width: 145px;
+}
+
+/*Кнопки сохранить и добавить*/
+.buttons_botoom {
+    margin-top: 50px;
+}
+
+.buttons_botoom_margin_right {
+    margin-right: -10px;
+}
+
+.buttons_botoom_margin_center {
+    margin: 0 auto;
+    width: 430px;
+}
+
+.buttons_top {
+    margin-left:5px;
+	margin-top: 5px;
+}
+
+/*Добавить кнопка во всплывающем окне*/
+.add_button {
+background: url(images/add_button_bg.png) repeat-x;
+color: #fff;
+display: inline-block;
+padding: 5px 20px;
+border-radius: 5px;
+float: left;
+box-shadow: 0px 3px 3px 0px #636262;
+}
+
+/*сохранить кнопка во всплывающем окне*/
+.save_button {
+    box-shadow: 0px 3px 3px 0px #636262;
+    background: url(images/save_button_bg.png) repeat-x;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 5px;
+    float: right;
+    margin-top: -20px;
+}
+
+.question_float_none .save_button {
+    margin: 60px 10px 0 0;
+}
+
+.save_button_left {
+    box-shadow: 0px 3px 3px 0px #636262;
+    background: url(images/save_button_bg.png) repeat-x;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin-bottom: 9px;
+}
+
+/*див с полями авторизации*/
+.logon_form {
+    width: 225px;
+    margin: 20px auto 100px auto;
+}
+
+/*Общие стили для формы авторизации*/
+.logon_inputs {
+ padding: 0 10px;
+ color: #666666;
+ height: 40px;
+ width: 192px;
+}
+
+/*Ширина поля в админке в разделе роли*/
+.question input[type="text"] {
+width: 780px;
+}
+
+#winContent_center_block .question .question_search_input {
+    width: 200px
+}
+
+/*поле ввода пароля при авторизации*/
+#pass_logon {
+ background: url(images/input_logon_pass_bg.png) repeat-x;
+ border-radius: 0 0 5px 5px;
+
+}
+
+/*поле ввода email при авторизации*/
+#email_logon {
+ background: url(images/input_logon_email_bg.png) repeat-x;
+ border-radius: 5px 5px 0 0;
+}
+
+.remember_user {
+    width: 140px;
+    margin: 0 auto;
+
+}
+
+/*checkbox кнопка*/
+.remember_user input[type="checkbox"] {
+    display: none;
+}
+
+.remember_user label {
+    cursor: pointer;
+}
+
+/*Рисуем checkbox из дива*/
+.remember_user input[type="checkbox"] + label div {
+    display: inline-block;
+    width:17px;
+    height:17px;
+    background:#E2EEFF;
+    margin: 0 5px -3px 0;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+/*вставляем галочку, если пользователь кликнул по кнопке запомнить меня*/
+.remember_user input[type="checkbox"]:checked + label div {
+    background:url(images/arrow_yes.png) 1px 1px no-repeat #E2EEFF;
+
+}
+
+/*Кнопка авторизации */
+.login_button {
+ background: url(images/login_button.png) repeat-x;
+height: 20px;
+padding: 7px 0;
+color: #fff;
+width: 140px;
+border-radius: 5px;
+text-align: center;
+cursor: pointer;
+margin: 0 auto;
+}
+
+/* Таблицы bootstrap */
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table thead th {
+  vertical-align: bottom;
+}
+
+.table caption + thead tr:first-child th,
+.table caption + thead tr:first-child td,
+.table colgroup + thead tr:first-child th,
+.table colgroup + thead tr:first-child td,
+.table thead:first-child tr:first-child th,
+.table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+
+.table .table {
+  background-color: #ffffff;
+}
+
+.table-condensed th,
+.table-condensed td {
+  padding: 4px 5px;
+}
+
+.table-bordered {
+  border: 1px solid #dddddd;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-left: 0;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border-left: 1px solid #dddddd;
+}
+
+.table-bordered caption + thead tr:first-child th,
+.table-bordered caption + tbody tr:first-child th,
+.table-bordered caption + tbody tr:first-child td,
+.table-bordered colgroup + thead tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child td,
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+
+.table-bordered thead:first-child tr:first-child > th:first-child,
+.table-bordered tbody:first-child tr:first-child > td:first-child,
+.table-bordered tbody:first-child tr:first-child > th:first-child {
+  -webkit-border-top-left-radius: 0;
+          border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+}
+
+.table-bordered thead:first-child tr:first-child > th:last-child,
+.table-bordered tbody:first-child tr:first-child > td:last-child,
+.table-bordered tbody:first-child tr:first-child > th:last-child {
+  -webkit-border-top-right-radius: 0;
+          border-top-right-radius: 0;
+  -moz-border-radius-topright: 0;
+}
+
+.table-bordered thead:last-child tr:last-child > th:first-child,
+.table-bordered tbody:last-child tr:last-child > td:first-child,
+.table-bordered tbody:last-child tr:last-child > th:first-child,
+.table-bordered tfoot:last-child tr:last-child > td:first-child,
+.table-bordered tfoot:last-child tr:last-child > th:first-child {
+  -webkit-border-bottom-left-radius: 0;
+          border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+}
+
+.table-bordered thead:last-child tr:last-child > th:last-child,
+.table-bordered tbody:last-child tr:last-child > td:last-child,
+.table-bordered tbody:last-child tr:last-child > th:last-child,
+.table-bordered tfoot:last-child tr:last-child > td:last-child,
+.table-bordered tfoot:last-child tr:last-child > th:last-child {
+  -webkit-border-bottom-right-radius: 0;
+          border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+}
+
+.table-bordered tfoot + tbody:last-child tr:last-child td:first-child {
+  -webkit-border-bottom-left-radius: 0;
+          border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+}
+
+.table-bordered tfoot + tbody:last-child tr:last-child td:last-child {
+  -webkit-border-bottom-right-radius: 0;
+          border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+}
+
+.table-bordered caption + thead tr:first-child th:first-child,
+.table-bordered caption + tbody tr:first-child td:first-child,
+.table-bordered colgroup + thead tr:first-child th:first-child,
+.table-bordered colgroup + tbody tr:first-child td:first-child {
+  -webkit-border-top-left-radius: 0;
+          border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+}
+
+.table-bordered caption + thead tr:first-child th:last-child,
+.table-bordered caption + tbody tr:first-child td:last-child,
+.table-bordered colgroup + thead tr:first-child th:last-child,
+.table-bordered colgroup + tbody tr:first-child td:last-child {
+  -webkit-border-top-right-radius: 0;
+          border-top-right-radius: 0;
+  -moz-border-radius-topright: 0;
+}
+
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover > td,
+.table-hover tbody tr:hover > th {
+  background-color: #e8f8fd;
+}
+
+table td[class*="span"],
+table th[class*="span"],
+.row-fluid table td[class*="span"],
+.row-fluid table th[class*="span"] {
+  display: table-cell;
+  float: none;
+  margin-left: 0;
+}
+
+.table td.span1,
+.table th.span1 {
+  float: none;
+  width: 44px;
+  margin-left: 0;
+}
+
+.table td.span2,
+.table th.span2 {
+  float: none;
+  width: 124px;
+  margin-left: 0;
+}
+
+.table td.span3,
+.table th.span3 {
+  float: none;
+  width: 204px;
+  margin-left: 0;
+}
+
+.table td.span4,
+.table th.span4 {
+  float: none;
+  width: 284px;
+  margin-left: 0;
+}
+
+.table td.span5,
+.table th.span5 {
+  float: none;
+  width: 364px;
+  margin-left: 0;
+}
+
+.table td.span6,
+.table th.span6 {
+  float: none;
+  width: 444px;
+  margin-left: 0;
+}
+
+.table td.span7,
+.table th.span7 {
+  float: none;
+  width: 524px;
+  margin-left: 0;
+}
+
+.table td.span8,
+.table th.span8 {
+  float: none;
+  width: 604px;
+  margin-left: 0;
+}
+
+.table td.span9,
+.table th.span9 {
+  float: none;
+  width: 684px;
+  margin-left: 0;
+}
+
+.table td.span10,
+.table th.span10 {
+  float: none;
+  width: 764px;
+  margin-left: 0;
+}
+
+.table td.span11,
+.table th.span11 {
+  float: none;
+  width: 844px;
+  margin-left: 0;
+}
+
+.table td.span12,
+.table th.span12 {
+  float: none;
+  width: 924px;
+  margin-left: 0;
+}
+
+.table tbody tr.success > td {
+  background-color: #3fb618;
+}
+
+.table tbody tr.error > td {
+  background-color: #ff0039;
+}
+
+.table tbody tr.warning > td {
+  background-color: #ff7518;
+}
+
+.table tbody tr.info > td {
+  background-color: #9954bb;
+}
+
+.table-hover tbody tr.success:hover > td {
+  background-color: #379f15;
+}
+
+.table-hover tbody tr.error:hover > td {
+  background-color: #e60033;
+}
+
+.table-hover tbody tr.warning:hover > td {
+  background-color: #fe6600;
+}
+
+.table-hover tbody tr.info:hover > td {
+  background-color: #8d46b0;
+}
+
+tr.smoPart td {
+    background-color: red !important;
+}
+
+tr.moPart td {
+    background-color: aqua !important;
+}
+
+/*Кнопки категорий помощи на главной и последней странице*/
+.categories_help {
+ width: 700px;
+ margin: 40px auto 40px auto;
+ overflow: auto;
+}
+
+.category_help {
+ float: left;
+ width: 150px;
+ margin: 0 40px;
+}
+
+
+.category_help img {
+ width: 150px;
+ clear: both;
+ margin: 0 auto;
+}
+
+a .title_help {
+ text-align: center;
+ color: #7a7a7a;
+}
+
+#winContent .thanks {color: #3399cc; margin: 150px 0 110px 0; font-size: 40px}
+
+#winContent #next_quation_div #none_next_quation {background: url(images/none_right_arrow.png) no-repeat; height:30px; width: 30px;}
+
+#none_next_quation div {
+padding: 5px 0 0 30px;
+}
+
+a #none_next_quation { 
+ color: #3399cc;
+ font-weight: bold;
+}
+
+/*убираем непонятное подчеркивание ссылки "Завершить"*/
+a:-webkit-any-link {
+text-decoration: none
+}
+
+
+/*Блок с отображением шагов анкетировани*/
+.levels {
+ text-align: center;
+ clear: both;
+}
+
+.levels .level {
+ /*float: left;*/
+ display: inline-block;
+ width: 20px;
+ height: 20px;
+ border-radius: 100px;
+ background: url(images/cercle_level.png);
+ margin: 0 3px;
+}
+
+.levels .active {
+    background: url(images/cercle_current_level.png);
+}
+
+h2.numberVoting {
+    color: black;
+    font-size: 20px;
+    margin-top: -50px;
+    text-align: center;
+}
+
+#message_statistic {
+    position: static;
+    width:300px;
+    height:200px;
+    z-index: 500;
+    background: url("images/pop_up_statistic_bg.png");
+    display:block;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#message_statistic_workspace {
+    border-top: 2px dashed #ccc;
+    border-bottom: 2px dashed #ccc;
+    margin: 5px;
+    height: 95%;
+}
+
+.answerMoreWidth {
+    position: absolute;
+    /*width: 600px;*/
+}
+
+
+@media screen and (min-width: 1400px) {
+    .answerMoreWidthBottom {
+        clear: both;
+        float: left;
+        /*width: 600px;*/
+        margin-left: 2px;
+    }
+}
+
+.table-statistics {
+    width: 1500px !important;
+    max-width: none;
+}
+
+@media screen and (max-width: 1400px) {
+    .answerMoreWidthBottom {
+        clear: both;
+        float: left;
+        margin-left: 2px;
+    }
+}
+
+/* Служебное окно   
+----------------------------------------------------------*/
+.serviceWindowDefault
+{
+    text-align: center;
+    font-family: "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    font-size: 13px;
+}
+
+.serviceWindowError
+{
+    background-color: #FFD8DF !important;
+    text-align: center;
+    font-family: "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    font-size: 13px;
+}
+
+.serviceWindowSuccess
+{
+    background-color: #D6FFE7 !important;
+    text-align: center;
+    font-family: "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    font-size: 13px;
+}
+
+.serviceWindowMessage
+{
+    margin: 10px 0px 0px 0px;
+}

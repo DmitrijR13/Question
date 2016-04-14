@@ -1,0 +1,70 @@
+﻿@model Questionnaire.WebSite.Models.ComplaintModel
+
+<script>
+    setAjaxForm("popupContent");
+</script>
+
+@using (Html.BeginForm("EditComplaint", "Complaint", FormMethod.Post, new { id = "ajaxForm" }))
+{
+    <a href="#" class="popupClose" onclick="ClosePopup()"></a>
+    <h3>Добавление/Редактирование жалоб</h3>
+    <div class="popupForm">
+        <div class="popupItem">
+            @Html.HiddenFor(m => m.ID)
+            @Html.Hidden("IsNew", (Boolean)ViewBag.IsNew)
+            <span class="ttl">Имя:</span>
+            @Html.HiddenFor(m => m.FirstName)
+            <div class="complaintDataItem">@Html.DisplayFor(m => m.FirstName)</div>
+            @*@Html.ValidationMessageFor(m => m.FirstName)*@
+        </div>
+        <div class="popupItem">
+            <span class="ttl">Отчество:</span>
+            @Html.HiddenFor(m => m.SecondName)
+            <div class="complaintDataItem">@Html.DisplayFor(m => m.SecondName)</div>
+            @*@Html.ValidationMessageFor(m => m.SecondName)*@
+        </div>
+        <div class="popupItem">
+            <span class="ttl">Фамилия:</span>
+            @Html.HiddenFor(m => m.LastName)
+            <div class="complaintDataItem">@Html.DisplayFor(m => m.LastName)</div>
+            @*@Html.ValidationMessageFor(m => m.LastName)*@
+        </div>
+        <div class="popupItem">
+            <span class="ttl">Федеральный код МО:</span>
+            @Html.HiddenFor(m => m.FederalCodeMO)
+            <div class="complaintDataItem">@Html.DisplayFor(m => m.FederalCodeMO)</div>
+            @*@Html.ValidationMessageFor(m => m.FederalCodeMO)*@
+        </div>
+        <div class="popupItem">
+            <span class="ttl">Текст:</span>
+            @Html.HiddenFor(m => m.Text)
+            <div class="complaintDataItem">@Html.DisplayFor(m => m.Text)</div>
+            @*@Html.ValidationMessageFor(m => m.Text)*@
+        </div>
+        <div class="popupItem">
+            <span class="ttl">Телефон:</span>
+            @Html.HiddenFor(m => m.Phone)
+            <div class="complaintDataItem">@Html.DisplayFor(m => m.Phone)</div>
+            @*@Html.ValidationMessageFor(m => m.Phone)*@
+        </div>
+        <div class="popupItem">
+            <div class="title">Категория обращения:</div>
+            @Html.DropDownListFor(m => m.TypeCategoryID, new SelectList(Model.Categories, "Value", "Text", Model.TypeCategoryID), "-- Выберите --")
+            @Html.ValidationMessageFor(m => m.TypeCategoryID)
+        </div>
+        <div class="popupItem">
+            <div class="title">Характер обращения:</div>
+            @Html.DropDownListFor(m => m.TypeDealID, new SelectList(Model.Deals, "Value", "Text", Model.TypeDealID), "-- Выберите --")
+            @Html.ValidationMessageFor(m => m.TypeDealID)
+        </div>
+        <div class="popupItem">
+            <div class="title">Состояние обращения:</div>
+            @Html.DropDownListFor(m => m.TypeStateID, new SelectList(Model.States, "Value", "Text", Model.TypeStateID), "-- Выберите --")
+            @Html.ValidationMessageFor(m => m.TypeStateID)
+        </div>
+    </div>
+    <div class="popupAction">
+        <a href="#" class="cancel" onclick="ClosePopup()">Отмена</a>
+        <a href="#" class="submit" onclick="$(this).closest('form').submit(); return false;">Отправить</a>
+    </div>
+}

@@ -1,0 +1,204 @@
+﻿body  {
+   position:  relative;
+   height:  auto  !important;
+   height:  100%;
+   min-height:  100%; 
+   font-size: 12px;
+   font-family: arial;   
+   color: #666;
+   font: 12px/22px Arial,Helvetica,sans-serif;
+}
+@font-face {
+  font-family: 'Marmelad';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Marmelad'), local('Marmelad-Regular'), url('http://themes.googleusercontent.com/static/fonts/marmelad/v3/xpbXuAKcTwQ5l3JD46hcvQ.woff') format('woff');
+}
+html  {
+   height:  100%;
+}
+input[type="text"], input[type="password"] {
+    font-family: 'arial';
+    font-size: 12px;
+}
+textarea {
+    font-family: 'arial';
+    font-size: 12px;
+}
+a { color: #3E68F4; }
+
+
+.admin  {
+  /*padding: 15px 20px;*/
+} 
+.adminMenu {
+    float: left;
+    width: 300px;
+}
+.adminMenu li {
+   padding: 8px 10px; 
+   border: 1px solid #ccc;
+   background: #F4F5FF;
+}
+.adminMenu li + li {margin-top: -1px;}
+.adminMenu li:hover, .adminMenu li.active { background: #ADB9FF;}
+.adminMenu li:hover a, .adminMenu li.active a { color: #fff;}
+.adminMenu a {
+    font-family: 'Marmelad';
+    font-size: 16px;
+    color: #00137F;
+}
+.gridWrapper {
+    border: 1px solid #ccc;
+    min-height: 400px;
+    width:920px;
+}
+.warning {
+    color: #f00;
+    margin-left: 3px;
+}
+.popupLayer {
+	background: #000;
+	height: 100%;
+	left: 0;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 20;
+}
+.popup {	
+	width: 700px;
+	z-index: 10;
+	background: #fff;
+	position: absolute;
+    top:12%;
+	z-index: 25;        
+    font-family: 'Trebuchet MS';
+    left: 10%; 
+    border: 1px solid #ccc;
+}
+.popupInner {    
+    padding: 15px 20px;
+    position: relative;
+}
+.popup h3 {
+    font-family: 'Trebuchet MS';
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.popupClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: url('/Content/images/close.png') 0 0 no-repeat;
+    height: 24px;
+    width: 24px;
+    display: block;
+}
+
+.popupForm select {
+    width: 412px !important;
+    border: 1px solid #ccc;
+    padding: 3px 5px;
+}
+
+.popupForm input[type="text"],
+.popupForm input[type="password"],
+.popupForm select {
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 3px 5px;
+}
+.popupForm .popupItem + .popupItem { margin-top: 10px;}
+.popupForm textarea {
+    width: 400px;
+    border: 1px solid #ccc;
+    height: 220px;
+    padding: 3px 5px;
+}
+.popupAction {
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    padding: 10px 0;
+    overflow: hidden;
+    margin-top: 15px;
+}
+.popupAction  a {
+    padding: 5px 10px;
+    text-align: center;
+    width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.popupAction .cancel {
+    float: right;
+    background: #ddd;
+    color: #000;
+}
+.popupAction .submit {
+    float: left;
+    background: #3E68F4;
+    color: #fff;
+}
+
+.loginForm {
+    background: #F5F5F5;
+    border: 1px solid #EEEEEE;
+    /*margin: 100px auto 0;*/
+    padding: 10px 15px;
+    width: 427px;
+}
+
+.field-validation-error {
+    color: #FF0000;
+}
+
+div.message {
+    font-size: 18px;
+}
+
+ul {
+	list-style-type:none;
+}
+
+table
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+a {text-decoration: none; outline: none; }
+input:focus, input:active {outline: none;}
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+.clearfix {
+	display: block;
+}
+* html .clearfix {
+	height: 1%;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+textarea { resize: none;}
+
+.complaintDataItem {
+    font-size: 14px;
+    font-style: italic;
+}

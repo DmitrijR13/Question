@@ -1,0 +1,41 @@
+﻿@model Questionnaire.WebSite.Models.StatisticsModel
+
+<script>
+    setAjaxForm("areaContent");
+</script>
+
+@using (Html.BeginForm("Enumeration", "Statistics", FormMethod.Post, new { id = "ajaxForm" }))
+{
+    @Html.HiddenFor(x => x.CharterID)
+    <table class="table table-bordered table-striped table-hover">
+        <tbody>
+            @{ for (Int32 i = 0; i < Model.Questions.Count; i++)
+               {
+                <tr>
+                    <td colspan="3">
+                        @Html.HiddenFor(x => Model.Questions[i].ID)
+                        @Html.HiddenFor(x => Model.Questions[i].TextQuestion)
+                        @Model.Questions[i].TextQuestion
+                    </td>
+                </tr>
+                   for (Int32 j = 0; j < Model.Questions[i].Answers.Count; j++)
+                   {
+                    <tr>
+                        <td>@(j + 1)</td>
+                        <td>@Model.Questions[i].Answers[j].TextAnswer</td>
+                        <td>
+                            @Html.HiddenFor(x => Model.Questions[i].Answers[j].ID)
+                            @Html.HiddenFor(x => Model.Questions[i].Answers[j].TextAnswer)
+                            @Html.CheckBoxFor(x => Model.Questions[i].Answers[j].IsCheck)
+                        </td>
+                    </tr>                
+                   }
+               }
+            }
+        </tbody>
+    </table>
+
+    <div class="buttons_botoom">
+        <a href="#" onclick="$(this).closest('form').submit(); return false;"><div class="save_button">Применить</div></a>
+    </div>
+}

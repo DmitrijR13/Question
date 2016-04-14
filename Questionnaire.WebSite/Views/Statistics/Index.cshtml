@@ -1,0 +1,39 @@
+﻿@using Questionnaire.WebSite.Models
+
+@model List<MenuItem>
+
+@{
+    ViewBag.Title = "Анкетирование: статистика";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+    <script src="@Url.Content("~/Scripts/Statistics.js")" type="text/javascript"></script>
+}
+
+<div class="body_adminki">
+
+<!-- Меню статистики -->
+    <div class="left_sidebar_adminka">
+        <ul class="menu_adminka">
+            @foreach(var item in Model)
+            {
+                <a id="@item.ID" href="#" onmouseover="openSubMenuWindow(this)" onmouseout="closeSubMenuWindow(this)"><li class="item_menu_adminka">@item.Name<div class="arrow"></div></li></a>
+                <div id="@String.Concat(item.ID, "_win")" class="submenu_charter" style="display:none">
+			        <div class="submenu_name_project">
+				        <ul>
+                        @foreach(MenuItem itemMenu in item.MenuItems)
+                        {
+                            <li><a id="@itemMenu.ID" href="@itemMenu.UrlAction" onclick="@itemMenu.OnClick">@itemMenu.Name</a></li>
+                        }
+				        </ul>
+			        </div>
+		        </div>
+            }
+        </ul>
+    </div>
+
+    <!-- основная рабочая область статистики-->
+    <div id="areaContent" class="main_workspace_adminka">
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@model Questionnaire.WebSite.Models.PreQuestionnaireModel
+
+@{
+    ViewBag.Title = "Анкетирование";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="winContent_center_block">
+    <div style="overflow: auto" id="winContent">
+        @using (Html.BeginForm("PreQuestionnaire", "Home", FormMethod.Post, new { id = "mainForm" }))
+        {
+            @Html.HiddenFor(x => x.CharterID)
+            @Html.HiddenFor(x => x.TypeTransition, new { id = "hdnTypeTransition" })
+            @Html.HiddenFor(x => x.IsPlugin, new { id = "hdnIsPlugin" })
+
+            <div class="question_float_none">
+                
+                @*<div class="sides">
+                    <span>Выберите мед.организацию</span><br/>
+                    @Html.TextBox("tbFindMOOrganization", String.Empty, String.Empty, new {id = "tbFindMOOrganization", @class = "question_search_input", onkeyup = "findMOOrganization()", placeholder = "Поиск..."})<br/>
+                    @Html.ListBoxFor(x => x.MOOrganizationID, new SelectList(Model.MOOrganizations, "ID", "Name", Model.MOOrganizations), new {multiple = false, size = 5, id = "moOrganizations"})
+                    @Html.ValidationMessageFor(x => x.MOOrganizationID)
+
+                </div>
+
+                <div class="sides">
+                    <span>Выберите страх. мед.организацию</span><br>
+                    @Html.TextBox("tbFindSMOOrganization", String.Empty, String.Empty, new {id = "tbFindSMOOrganization", @class = "question_search_input", onkeyup = "findSMOOrganization()", placeholder = "Поиск..."})<br>
+                    @Html.ListBoxFor(x => x.SMOOrganizationID, new SelectList(Model.SMOOrganizations, "ID", "Name", Model.SMOOrganizations), new {multiple = false, size = 5, id = "smoOrganizations"})
+                    @Html.ValidationMessageFor(x => x.SMOOrganizationID)
+                </div>
+
+                <div style="display: none">
+                    @for (Int32 i = 0; i < Model.MOOrganizations.Count; i++)
+                    {
+                        @Html.HiddenFor(x => x.MOOrganizations[i].ID)
+                        @Html.HiddenFor(x => x.MOOrganizations[i].Code)
+                        @Html.HiddenFor(x => x.MOOrganizations[i].Name)
+                    }
+                </div>
+
+                <div style="display: none">
+                    @for (Int32 i = 0; i < Model.SMOOrganizations.Count; i++)
+                    {
+                        @Html.HiddenFor(x => x.SMOOrganizations[i].ID)
+                        @Html.HiddenFor(x => x.SMOOrganizations[i].Code)
+                        @Html.HiddenFor(x => x.SMOOrganizations[i].Name)
+                    }
+                </div>*@
+                <div class="buttons_botoom_margin_center">
+                    <a href="#" onclick="beginQuestionnaire(1)">
+                        <div class="save_button">Показывать по вопросу</div></a>
+                    <a href="#" onclick="beginQuestionnaire(0)">
+                        <div class="save_button">Показать все вопросы</div></a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

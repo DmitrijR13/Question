@@ -1,0 +1,2 @@
+create or replace
+TYPE INT32_ARRAY IS TABLE OF NUMBER NOT NULL;

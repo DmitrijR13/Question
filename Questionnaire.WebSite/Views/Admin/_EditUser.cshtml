@@ -1,0 +1,59 @@
+﻿@model Questionnaire.WebSite.Models.UserModel
+
+<script>
+    setAjaxForm("popupContent");
+    $("#titlePopup").text('Добавление/Редактирование пользователя');
+</script>
+
+@using (Html.BeginForm("EditUser", "Admin", FormMethod.Post, new { id = "ajaxForm"}))
+{
+    <div class="answer_pop_up answer">
+        <div class="answer_item">
+            @Html.HiddenFor(m => m.ID)
+            @Html.Hidden("IsNew", (Boolean)ViewBag.IsNew)
+            <span class="ttl">Имя:</span>
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "firstName" })
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Отчество:</span>
+            @Html.TextBoxFor(m => m.SecondName, new { @class = "secondName" })
+            @Html.ValidationMessageFor(m => m.SecondName)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Фамилия:</span>
+            @Html.TextBoxFor(m => m.LastName, new { @class = "lastName" })
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Email:</span>
+            @Html.TextBoxFor(m => m.Email, new { @class = "email" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Пароль:</span>
+            @Html.TextBoxFor(m => m.Password, new { @class = "password" })
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">Роль:</span>
+            @Html.DropDownListFor(m => m.RoleID, new SelectList((IEnumerable<SelectListItem>)ViewBag.Roles, "Value", "Text", Model.RoleID), "-- Выберите --", new { @class = "role" })
+            @Html.ValidationMessageFor(m => m.RoleID)
+        </div>
+
+        <div class="answer_item">
+            <span class="ttl">По одному вопросу:</span>
+            @Html.CheckBoxFor(m => m.IsOneQuestion, new { @class = "isOneQuestion" })
+            @Html.ValidationMessageFor(m => m.IsOneQuestion)
+        </div>
+    </div>
+        
+    <div class="buttons_botoom">
+        <a href="#" onclick="$(this).closest('form').submit(); return false;"><div class="save_button">Сохранить</div></a>
+    </div>
+}

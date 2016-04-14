@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Анкетирование: администрирование";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+    <script src="@Url.Content("~/Scripts/Admin.js")" type="text/javascript"></script>
+}
+
+<div class="body_adminki">
+<!-- Меню админки -->
+    <div class="left_sidebar_adminka">
+        <ul class="menu_adminka">
+            @Html.Action("MenuItems", "Admin")
+        </ul>
+    </div>
+
+    <!-- основная рабочая область админки-->
+    <div id="areaContent" class="main_workspace_adminka">
+    </div>
+</div>
+
+<!--pop_ip-->
+<div id="popup" style="display:none">
+    <!-- первый див  - фон -->
+    <div class="pop_up_bg"></div>
+    <!-- окно pop_up -->
+    <div class="pop_up_window">
+        <!-- див с подчеркиванием снизу -->
+        <div class="header_pop_up">
+            <div id="titlePopup" class="title_pop_up"></div>
+            <div class="close_pop_up"><img src="~/Content/images/close_pop_up.png" onclick="ClosePopup()" alt=""></div>
+        </div>
+        <div id="popupContent" class="content_pop_up_window">
+        </div>
+    </div>
+</div>

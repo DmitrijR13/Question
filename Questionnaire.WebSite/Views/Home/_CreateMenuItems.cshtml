@@ -1,0 +1,52 @@
+﻿@using Questionnaire.WebSite.Models
+
+@model List<MenuItem>
+
+<div id="menu">
+	<div id="name_project"><a href='@Url.Action("Index", "Home")'><img src="@Url.Content("~/Content/images/Questioning.png")" alt="Проект Анкетирование"></a>
+		<div class="submenu_name_project_block">
+			<div class="submenu_name_project">
+				<ul>
+                @foreach(MenuItem item in Model)
+                {
+                    <li><a id="@item.ID" href="@item.UrlAction">@item.Name</a></li>
+                }
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div style="float:left" class="splin"></div>
+
+	<div id="items_menu">
+	    @Html.Partial("_LogOnPartial")
+        
+        <div class="splin"></div>
+
+        @if (Session.User != null &&
+             Session.User.IsRole("Admin/Index"))
+        {
+            <div id="setting"><a id="href" href="#"></a>
+	            <div class="submen">
+		            <div class="connection_to_sub_menu"><img src="@Url.Content("~/Content/images/setting_hover.png")"></div>
+		            <div class="items_submenu">
+			            <ul>
+			                <li>@Html.ActionLink("Статистика", "Index", "Statistics")</li>
+			                <li>@Html.ActionLink("Админка", "Index", "Admin")</li>
+			            </ul>
+		            </div>
+	            </div>
+            </div>
+
+	        <div class="splin"></div>
+        }
+	    
+        <a id="eye" href="#" onclick="ChangeIsBlind()"><img src="@Url.Content("~/Content/images/eye2.png")" alt="Увеличить шрифт"></a><div class="splin"></div>
+        @if (Session.User != null &&
+             Session.User.IsRole("Statistic/Index") &&
+             !Session.User.IsRole("Admin/Index"))
+        {
+	        <a id="statistic" href='@Url.Action("Index", "Statistics")'><img src="@Url.Content("~/Content/images/statistic.png")" alt="Статистика"></a>
+        }
+	</div>
+</div>

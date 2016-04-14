@@ -1,0 +1,82 @@
+﻿@model Questionnaire.WebSite.Models.JournalMarkModel
+
+<script>
+    $('.dataJournal')
+        .mouseover(function () {
+            $("#message_statistic").show();
+            $("#message_statistic").offset({ top: $(this).offset().top + 40, left: $(this).offset().left - 310 });
+            $("#message_statistic_workspace").html($(this).find(".txtValue").html())
+        })
+        .mouseout(function () {
+            $("#message_statistic").hide();
+            $("#message_statistic_workspace").html("");
+        });
+</script>
+
+<table class="table table-bordered table-striped table-hover table-statistics">
+    <thead>
+        <tr>
+            <th class="thTitle"></th>
+            <th class="thTitle"></th>
+            <th class="thTitle"></th>
+            @for (Int32 i = 0; i < Model.Questions.Count; i++)
+            {
+                <th class="dataJournal">
+                    <div class="intValue">@Model.Questions[i].NumberSequence</div>
+                    <div class="txtValue" style="display: none;">@Model.Questions[i].Name</div>
+                </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @{ for (Int32 i = 0; i < Model.SMOOrganizations.Count; i++)
+            {
+                <tr class="smoPart" num="@i" hide="0">
+                    <td>
+                        <a onclick="OpenCloseSMO(this)">Х</a>
+                    </td>
+                    <td>
+                        @Model.SMOOrganizations[i].Code
+                    </td>
+                    <td>
+                        @Model.SMOOrganizations[i].Name
+                    </td>
+                    @for (Int32 j = 0; j < Model.SMOOrganizations[i].Answers.Count; j++)
+                    {
+                        <td class="dataJournal">
+                            <div class="intValue">@Model.SMOOrganizations[i].Answers[j].AnswerIDs</div>
+                            <div class="txtValue" style="display: none;">@Model.SMOOrganizations[i].Answers[j].AnswerValue</div>
+                        </td>   
+                    }
+                </tr>
+            
+                for (Int32 h = 0; h < Model.SMOOrganizations[i].Votings.Count; h++)
+                {
+                <tr numSmo="@i">
+                    <td>
+                        @Model.SMOOrganizations[i].Votings[h].ID
+                    </td>
+                        
+                    <td>    
+                    </td>
+
+                    <td>
+                    </td>
+
+                    @for (Int32 j = 0; j < Model.SMOOrganizations[i].Votings[h].Answers.Count; j++)
+                    {
+                        <td class="dataJournal">
+                            <div class="intValue">@Model.SMOOrganizations[i].Votings[h].Answers[j].AnswerIDs</div>
+                            <div class="txtValue" style="display: none;">@Model.SMOOrganizations[i].Votings[h].Answers[j].AnswerValue</div>
+                        </td>   
+                    }
+                </tr>
+                }
+            }
+        }
+    </tbody>
+</table>
+
+<div id="message_statistic" style="display:none">
+    <div id="message_statistic_workspace"></div>
+</div>
