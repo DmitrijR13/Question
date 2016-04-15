@@ -171,13 +171,21 @@ namespace Questionnaire.WebSite.Controllers
             //{
                 IPAddress ipAddress = RepoFactory.Instance.GetRepo<IIPAddressRepo>().GetByIPAddress(HttpContext.Request.UserHostAddress);
 
+            //MOOrganization MOOrganization =
+            //    RepoFactory.Instance.GetRepo<IMOOrganizationRepo>()
+            //        .GetByCodeAndName("Общие вопросы").FirstOrDefault();
+
+            //SMOOrganization SMOOrganization =
+            //    RepoFactory.Instance.GetRepo<ISMOOrganizationRepo>()
+            //        .GetByCodeAndName("Общие вопросы").FirstOrDefault();
+
             MOOrganization MOOrganization =
-                RepoFactory.Instance.GetRepo<IMOOrganizationRepo>()
-                    .GetByCodeAndName("Общие вопросы").FirstOrDefault();
+               RepoFactory.Instance.GetRepo<IMOOrganizationRepo>()
+                   .GetByCodeAndName("ГБУЗ СО \"Кинельская ЦБ города и района\"").FirstOrDefault();
 
             SMOOrganization SMOOrganization =
                 RepoFactory.Instance.GetRepo<ISMOOrganizationRepo>()
-                    .GetByCodeAndName("Общие вопросы").FirstOrDefault();
+                    .GetByCodeAndName("АО СК \"АСКОМЕД\"").FirstOrDefault();
 
             Voting voting = new Voting()
                 {

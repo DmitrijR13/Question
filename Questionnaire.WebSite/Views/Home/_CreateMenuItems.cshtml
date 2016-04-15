@@ -38,7 +38,18 @@
 	            </div>
             </div>
 
-	        <div class="splin"></div>
+            <div class="splin"></div>
+
+            <div class="logon_top_menu">
+                <div class="avatar_logon">
+                    @using (Html.BeginForm("Index", "Excel", FormMethod.Post))
+                    {
+                        <input type="image" name="submit" src="~/Content/images/printer2.png" alt="Отчет" title="Отчет" />
+                    }
+                </div>
+            </div>
+
+            <div class="splin"></div>
         }
 	    
         <a id="eye" href="#" onclick="ChangeIsBlind()"><img src="@Url.Content("~/Content/images/eye2.png")" alt="Увеличить шрифт"></a><div class="splin"></div>
