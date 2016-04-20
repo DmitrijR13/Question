@@ -144,7 +144,24 @@ namespace Questionnaire.WebSite.Controllers
 
             if (ModelState.IsValid)
             {
-                Voting voting = RepoFactory.Instance.GetRepo<IVotingRepo>().Get(model.VotingID);
+                Int32 votingID = model.VotingID;
+                VotingQuestion votingQuestion = RepoFactory.Instance.GetRepo<IVotingQuestionRepo>().GetAll().Where(x => x.Voting.ID == votingID).FirstOrDefault();
+                if (votingQuestion != null)
+                {
+                    Voting votingTemp = new Voting();
+                    votingTemp.DateVote = DateTime.Now;
+                    votingTemp.FirstName = votingQuestion.Voting.FirstName;
+                    votingTemp.IPAddress = votingQuestion.Voting.IPAddress;
+                    votingTemp.IsAnonymous = votingQuestion.Voting.IsAnonymous;
+                    votingTemp.LastName = votingQuestion.Voting.LastName;
+                    votingTemp.MOOrganization = votingQuestion.Voting.MOOrganization;
+                    votingTemp.SMOOrganization = votingQuestion.Voting.SMOOrganization;
+                    votingTemp.SecondName = votingQuestion.Voting.SecondName;
+                    Voting votingNew = RepoFactory.Instance.GetRepo<IVotingRepo>().Save(votingTemp);
+                    votingID = votingNew.ID;
+                }
+
+                Voting voting = RepoFactory.Instance.GetRepo<IVotingRepo>().Get(votingID);
 
                 if (voting == null) { throw new Exception("Такого голосующего нет!"); }
 
@@ -234,7 +251,7 @@ namespace Questionnaire.WebSite.Controllers
                     else if (question.TypeQuestion == TypeQuestion.Multiple)
                     {
                         List<VotingAnswerModel> newAnswers = item.Answers.Where(x => x.IsCheck).ToList();
-                        List<TempVotingQuestion> oldAnswers = RepoFactory.Instance.GetRepo<ITempVotingQuestionRepo>().GetByQuestionVoting(item.QuestionID, model.VotingID).ToList();
+                        List<TempVotingQuestion> oldAnswers = RepoFactory.Instance.GetRepo<ITempVotingQuestionRepo>().GetByQuestionVoting(item.QuestionID, votingID).ToList();
 
                         List<TempVotingQuestion> deleteAnswers = oldAnswers.Where(x => !newAnswers.Select(t => t.AnswerID).Contains(x.Answer.ID)).ToList();
                         List<TempVotingQuestion> addAnswers = newAnswers.Where(x => !oldAnswers.Select(t => t.Answer.ID).Contains(x.AnswerID))
@@ -265,13 +282,13 @@ namespace Questionnaire.WebSite.Controllers
                                 
                 if (Session.User != null)
                 {
-                    SaveQuestionnaire(model.VotingID);
+                    SaveQuestionnaire(votingID);
                     return RedirectToAction("Ready", "Questionnaire", new { charterID = model.CharterID, votingID = voting.ID });
                 }
                 else
                 {
                     //return RedirectToAction("VotingInfoCheck", "Questionnaire", new { charterID = model.CharterID, votingID = voting.ID });
-                    SaveQuestionnaire(model.VotingID);
+                    SaveQuestionnaire(votingID);
                     return RedirectToAction("Ready", "Questionnaire", new { charterID = model.CharterID, votingID = voting.ID });
                 }
             }
