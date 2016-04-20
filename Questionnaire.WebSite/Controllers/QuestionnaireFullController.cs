@@ -145,7 +145,7 @@ namespace Questionnaire.WebSite.Controllers
             if (ModelState.IsValid)
             {
                 Int32 votingID = model.VotingID;
-                VotingQuestion votingQuestion = RepoFactory.Instance.GetRepo<IVotingQuestionRepo>().GetAll().Where(x => x.Voting.ID == votingID).FirstOrDefault();
+                VotingQuestion votingQuestion = RepoFactory.Instance.GetRepo<IVotingQuestionRepo>().GetAll().FirstOrDefault(x => x.Voting.ID == votingID);
                 if (votingQuestion != null)
                 {
                     Voting votingTemp = new Voting();
